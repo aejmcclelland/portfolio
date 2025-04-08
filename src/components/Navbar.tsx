@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -9,16 +10,16 @@ export default function Navbar() {
 			<div className='navbar max-w-7xl mx-auto px-4'>
 				{/* Site Name */}
 				<div className='flex-1'>
-					<a className='btn btn-ghost text-xl font-grotesk'>
+					<Link href='/' className='btn btn-ghost text-xl font-grotesk'>
 						Andrew McClelland
-					</a>
+					</Link>
 				</div>
 
 				{/* Desktop Nav */}
 				<div className='hidden lg:flex'>
 					<ul className='menu menu-horizontal px-1'>
 						<li>
-							<a href='#'>About</a>
+							<a href='/about'>About</a>
 						</li>
 						<li>
 							<a href='#projects'>Projects</a>

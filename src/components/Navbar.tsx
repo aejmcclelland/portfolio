@@ -58,7 +58,7 @@ export default function Navbar() {
 				<div className='absolute top-[64px] left-0 w-full bg-base-200 shadow-md z-40 lg:hidden'>
 					<ul className='menu menu-vertical w-full p-4'>
 						<li>
-							<a href='#'>About</a>
+							<a href='/about'>About</a>
 						</li>
 						<li>
 							<a href='#projects'>Projects</a>

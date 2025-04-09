@@ -22,13 +22,13 @@ export default function About() {
 				{/* Contained Text Card */}
 				<div className='bg-secondary text-secondary-content rounded-xl shadow-lg p-6 w-full max-w-2xl'>
 					<p className='text-lg'>
-						I'm a passionate software engineer focused on building efficient,
-						scalable applications using modern tools like Next.js and MongoDB. I
-						love solving complex problems, learning new technologies, and
-						writing clean, maintainable code.
+						I&apos;m a passionate software engineer focused on building
+						efficient, scalable applications using modern tools like Next.js and
+						MongoDB. I love solving complex problems, learning new technologies,
+						and writing clean, maintainable code.
 					</p>
 					<p className='mt-4 text-base'>
-						Whether it's crafting APIs, working with data, or building
+						Whether it&apos;s crafting APIs, working with data, or building
 						interactive UIs, I enjoy every part of the development process.
 					</p>
 				</div>

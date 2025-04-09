@@ -31,7 +31,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 				</div>
 			</Link>
 			{github && (
-				<a
+				<Link
 					href={github}
 					target='_blank'
 					rel='noopener noreferrer'
@@ -39,7 +39,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 					onClick={(e) => e.stopPropagation()} // prevents navigating to slug page
 				>
 					View on GitHub
-				</a>
+				</Link>
 			)}
 		</div>
 	);

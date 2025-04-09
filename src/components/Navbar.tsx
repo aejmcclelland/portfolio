@@ -25,25 +25,25 @@ export default function Navbar() {
 				<div className='hidden lg:flex'>
 					<ul className='menu menu-horizontal px-1'>
 						<li>
-							<a
+							<Link
 								href='/about'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								About
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a
+							<Link
 								href='/projects'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Projects
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a
+							<Link
 								href='/contact'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Contact
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -76,25 +76,25 @@ export default function Navbar() {
 				<div className='absolute top-[64px] left-0 w-full bg-base-200 shadow-md z-40 lg:hidden'>
 					<ul className='menu menu-vertical w-full p-4'>
 						<li>
-							<a
+							<Link
 								href='/about'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								About
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a
+							<Link
 								href='/projects'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Projects
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a
+							<Link
 								href='/contact'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Contact
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>

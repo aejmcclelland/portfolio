@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 export default function Hero() {
 	return (
@@ -15,9 +16,9 @@ export default function Hero() {
 				into reality.
 			</p>
 			<div className='mt-6'>
-				<a href='/projects' className='btn btn-primary'>
+				<Link href='/projects' className='btn btn-primary'>
 					View Projects
-				</a>
+				</Link>
 			</div>
 		</section>
 	);

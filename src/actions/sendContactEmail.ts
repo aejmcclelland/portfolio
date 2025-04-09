@@ -44,8 +44,7 @@ export async function sendContactEmail(
 	);
 
 	const verifyData = await verifyRes.json();
-	console.log('🔐 reCAPTCHA token:', token);
-	console.log('✅ reCAPTCHA verification result:', verifyData);
+	
 	if (!verifyData.success || verifyData.score < 0.5) {
 		console.error('❌ reCAPTCHA failed:', verifyData);
 		return { message: 'reCAPTCHA verification failed. Please try again.' };
@@ -55,14 +54,21 @@ export async function sendContactEmail(
 		const [response] = await sgMail.send(msg);
 		console.log('✅ SendGrid response:', response?.statusCode);
 		return { message: 'Message sent successfully!' };
-	} catch (error: any) {
+	} catch (error: unknown) {
 		console.error('SendGrid error:');
 
-		if (error.response) {
-			console.error('Response body:', error.response.body);
-			console.error('Status code:', error.response.statusCode);
+		const err = error as Error & {
+			response?: {
+				body?: any;
+				statusCode?: number;
+			};
+		};
+
+		if (err.response) {
+			console.error('Response body:', err.response.body);
+			console.error('Status code:', err.response.statusCode);
 		} else {
-			console.error('Error message:', error.message || error);
+			console.error('Error message:', err.message || err);
 		}
 
 		return { message: 'Failed to send message.' };

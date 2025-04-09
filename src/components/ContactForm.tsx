@@ -21,7 +21,11 @@ function SubmitButton() {
 export default function ContactForm() {
 	const [state, formAction] = useActionState(
 		async (prevState: typeof initialState, formData: FormData) => {
-			const grecaptcha = ((window as unknown) as typeof globalThis & { grecaptcha: any }).grecaptcha;
+			const grecaptcha = 'grecaptcha' in window
+				? (window.grecaptcha as {
+						execute: (key: string, options: { action: string }) => Promise<string>;
+				  })
+				: undefined;
 
 			if (!grecaptcha) {
 				return {

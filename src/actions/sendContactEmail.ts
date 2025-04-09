@@ -59,7 +59,7 @@ export async function sendContactEmail(
 
 		const err = error as Error & {
 			response?: {
-				body?: any;
+				body?: Record<string, unknown>;
 				statusCode?: number;
 			};
 		};

@@ -29,9 +29,9 @@ const projectData = [
 ];
 
 export default function ProjectDetail({
-  params,
+	params,
 }: {
-  params: { slug: string };
+	params: { slug: string };
 }) {
 	const project = projectData.find((p) => p.slug === params.slug);
 

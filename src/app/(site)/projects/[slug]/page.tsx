@@ -1,9 +1,5 @@
 import { notFound } from 'next/navigation';
 
-interface ProjectDetailProps {
-	params: { slug: string };
-}
-
 const projectData = [
 	{
 		slug: 'rebekahs-recipes',
@@ -32,7 +28,7 @@ const projectData = [
 	// You can add more projects here
 ];
 
-export default function ProjectDetail({ params }: ProjectDetailProps) {
+export default function ProjectDetail({ params }: { params: { slug: string } }) {
 	const project = projectData.find((p) => p.slug === params.slug);
 
 	if (!project) return notFound();

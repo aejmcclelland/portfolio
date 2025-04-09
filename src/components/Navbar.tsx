@@ -1,9 +1,15 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
+	const [hasMounted, setHasMounted] = useState(false);
+
+	useEffect(() => {
+		setHasMounted(true);
+	}, []);
 
 	return (
 		<nav className='bg-base-300 sticky top-0 z-50 w-full'>
@@ -19,13 +25,25 @@ export default function Navbar() {
 				<div className='hidden lg:flex'>
 					<ul className='menu menu-horizontal px-1'>
 						<li>
-							<a href='/about'>About</a>
+							<a
+								href='/about'
+								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								About
+							</a>
 						</li>
 						<li>
-							<a href='#projects'>Projects</a>
+							<a
+								href='#projects'
+								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								Projects
+							</a>
 						</li>
 						<li>
-							<a href='/contact'>Contact</a>
+							<a
+								href='/contact'
+								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								Contact
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -54,17 +72,29 @@ export default function Navbar() {
 			</div>
 
 			{/* Mobile Dropdown */}
-			{isOpen && (
+			{hasMounted && isOpen && (
 				<div className='absolute top-[64px] left-0 w-full bg-base-200 shadow-md z-40 lg:hidden'>
 					<ul className='menu menu-vertical w-full p-4'>
 						<li>
-							<a href='/about'>About</a>
+							<a
+								href='/about'
+								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								About
+							</a>
 						</li>
 						<li>
-							<a href='#projects'>Projects</a>
+							<a
+								href='#projects'
+								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								Projects
+							</a>
 						</li>
 						<li>
-							<a href='/contact'>Contact</a>
+							<a
+								href='/contact'
+								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								Contact
+							</a>
 						</li>
 					</ul>
 				</div>

@@ -22,6 +22,17 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en' className={`${grotesk.variable}`}>
+			<head>
+				<meta
+					name='format-detection'
+					content='telephone=no, date=no, email=no, address=no'
+				/>
+				<script
+					src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+					async
+					defer
+				/>
+			</head>
 			<body className='font-grotesk flex flex-col min-h-screen'>
 				<Nav />
 				<main className='flex-grow'>{children}</main>

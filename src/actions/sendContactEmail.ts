@@ -4,12 +4,6 @@ import sgMail from '@sendgrid/mail';
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
-console.log(
-	'SENDGRID_API_KEY:',
-	process.env.SENDGRID_API_KEY?.slice(0, 10) || 'undefined'
-);
-console.log('SENDGRID_SENDER:', process.env.SENDGRID_SENDER || 'undefined');
-
 export async function sendContactEmail(
 	_prevState: { message: string },
 	formData: FormData
@@ -36,6 +30,26 @@ export async function sendContactEmail(
     `,
 		replyTo: email,
 	};
+
+	// Verify reCAPTCHA token
+	const token = formData.get('recaptcha');
+
+	const verifyRes = await fetch(
+		'https://www.google.com/recaptcha/api/siteverify',
+		{
+			method: 'POST',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+		}
+	);
+
+	const verifyData = await verifyRes.json();
+	console.log('🔐 reCAPTCHA token:', token);
+	console.log('✅ reCAPTCHA verification result:', verifyData);
+	if (!verifyData.success || verifyData.score < 0.5) {
+		console.error('❌ reCAPTCHA failed:', verifyData);
+		return { message: 'reCAPTCHA verification failed. Please try again.' };
+	}
 
 	try {
 		const [response] = await sgMail.send(msg);

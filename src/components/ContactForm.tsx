@@ -21,6 +21,21 @@ function SubmitButton() {
 export default function ContactForm() {
 	const [state, formAction] = useActionState(
 		async (prevState: typeof initialState, formData: FormData) => {
+			const grecaptcha = (window as any).grecaptcha;
+
+			if (!grecaptcha) {
+				return {
+					message: 'reCAPTCHA not ready. Please try again.',
+					status: 'error',
+				};
+			}
+
+			const token = await grecaptcha.execute(
+				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+				{ action: 'submit' }
+			);
+
+			formData.append('recaptcha', token);
 			const result = await sendContactEmail(prevState, formData);
 
 			return {

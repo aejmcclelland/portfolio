@@ -28,7 +28,7 @@ const projectData = [
 	// You can add more projects here
 ];
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
+export default async function ProjectDetail({ params }: { params: { slug: string } }) {
 	const project = projectData.find((p) => p.slug === params.slug);
 
 	if (!project) return notFound();

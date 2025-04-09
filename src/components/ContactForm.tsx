@@ -99,6 +99,25 @@ export default function ContactForm() {
 						<SubmitButton />
 					</div>
 				</form>
+				<p className='text-xs text-center text-base-content/70 mt-4'>
+					This site is protected by reCAPTCHA and the Google{' '}
+					<a
+						href='https://policies.google.com/privacy'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='underline hover:text-primary'>
+						Privacy Policy
+					</a>{' '}
+					and{' '}
+					<a
+						href='https://policies.google.com/terms'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='underline hover:text-primary'>
+						Terms of Service
+					</a>{' '}
+					apply.
+				</p>
 			</div>
 		</section>
 	);

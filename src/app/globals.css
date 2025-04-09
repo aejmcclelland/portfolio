@@ -33,3 +33,8 @@ body {
     transform: translateX(100%);
   }
 }
+
+/* reCAPTCHA v3 badge tweaks */
+.grecaptcha-badge {
+  visibility: hidden;
+}

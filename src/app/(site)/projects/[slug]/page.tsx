@@ -28,13 +28,6 @@ const projectData = [
 	// You can add more projects here
 ];
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-	const project = projectData.find(p => p.slug === params.slug);
-	return {
-		title: project?.title || 'Project',
-	};
-}
-
 export default function ProjectDetail({ params }: { params: { slug: string } }) {
 	const project = projectData.find((p) => p.slug === params.slug);
 

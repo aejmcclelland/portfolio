@@ -28,11 +28,11 @@ const projectData = [
 	// You can add more projects here
 ];
 
-interface ProjectDetailProps {
+export default function ProjectDetail({
+  params,
+}: {
   params: { slug: string };
-}
-
-export default function ProjectDetail({ params }: ProjectDetailProps) {
+}) {
 	const project = projectData.find((p) => p.slug === params.slug);
 
 	if (!project) return notFound();

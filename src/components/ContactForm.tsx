@@ -52,7 +52,7 @@ export default function ContactForm() {
 			className='py-16 px-4 sm:px-6 md:px-8 lg:px-10 bg-base-100'>
 			<div className='max-w-3xl mx-auto'>
 				<h2 className='text-3xl font-bold mb-6 text-center'>Get in Touch</h2>
-				{state.status === 'success' && <ContactSuccessToast />}
+				<ContactSuccessToast status={state.status} />
 				<form
 					action={formAction}
 					className='bg-base-200 shadow-md p-6 rounded-xl space-y-6'>

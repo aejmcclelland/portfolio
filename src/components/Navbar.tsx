@@ -33,7 +33,7 @@ export default function Navbar() {
 						</li>
 						<li>
 							<a
-								href='#projects'
+								href='/projects'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Projects
 							</a>
@@ -84,7 +84,7 @@ export default function Navbar() {
 						</li>
 						<li>
 							<a
-								href='#projects'
+								href='/projects'
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Projects
 							</a>

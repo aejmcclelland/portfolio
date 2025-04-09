@@ -36,8 +36,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 								e.stopPropagation();
 								window.open(github, '_blank');
 							}}
-							className='link text-sm text-primary hover:underline cursor-pointer'
-						>
+							className='link text-sm text-primary hover:underline cursor-pointer'>
 							View on GitHub
 						</span>
 					</div>

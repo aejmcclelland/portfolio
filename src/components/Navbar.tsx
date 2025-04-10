@@ -12,7 +12,7 @@ export default function Navbar() {
 	}, []);
 
 	return (
-		<nav className='bg-base-300 sticky top-0 z-50 w-full'>
+		<nav className='site-navbar bg-base-300 sticky top-0 z-50 w-full'>
 			<div className='navbar max-w-7xl mx-auto px-4'>
 				{/* Site Name */}
 				<div className='flex-1'>
@@ -56,7 +56,8 @@ export default function Navbar() {
 					<button
 						className='btn btn-ghost'
 						onClick={() => setIsOpen(!isOpen)}
-						aria-label='Toggle menu'>
+						aria-label='Toggle menu'
+						aria-expanded={isOpen}>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
 							className='h-6 w-6'

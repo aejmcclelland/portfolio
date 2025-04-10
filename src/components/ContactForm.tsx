@@ -97,6 +97,30 @@ export default function ContactForm() {
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
+							<span className='label-text font-semibold'>Your Phone (optional)</span>
+						</label>
+						<input
+							type='tel'
+							name='phone'
+							placeholder='+44 7700 900123'
+							className='input input-bordered w-full'
+						/>
+					</div>
+
+					<div className='form-control w-full'>
+						<label className='label justify-start'>
+							<span className='label-text font-semibold'>LinkedIn Profile (optional)</span>
+						</label>
+						<input
+							type='url'
+							name='linkedin'
+							placeholder='https://linkedin.com/in/yourname'
+							className='input input-bordered w-full'
+						/>
+					</div>
+
+					<div className='form-control w-full'>
+						<label className='label justify-start'>
 							<span className='label-text font-semibold'>
 								Your Message (optional)
 							</span>

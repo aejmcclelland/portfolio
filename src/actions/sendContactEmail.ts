@@ -11,6 +11,8 @@ export async function sendContactEmail(
 	const name = formData.get('name') as string;
 	const email = formData.get('email') as string;
 	const message = formData.get('message') as string;
+	const phone = formData.get('phone') as string;
+	const linkedin = formData.get('linkedin') as string;
 
 	if (!email || !message) {
 		return { message: 'Missing required fields' };
@@ -24,6 +26,10 @@ export async function sendContactEmail(
 		html: `
       <div style="font-family: sans-serif; line-height: 1.6;">
         <p><strong>From:</strong> ${name || 'Anonymous'} &lt;${email}&gt;</p>
+        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+        <p><strong>LinkedIn:</strong> ${
+          linkedin ? `<a href="${linkedin}" target="_blank">${linkedin}</a>` : 'N/A'
+        }</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       </div>

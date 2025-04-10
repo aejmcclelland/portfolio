@@ -17,16 +17,16 @@ export async function sendContactEmail(
 	}
 
 	const msg = {
-		to: process.env.SENDGRID_SENDER!,
-		from: process.env.SENDGRID_SENDER!,
+		to: 'aejmcclelland@gmail.com', // your actual inbox
+		from: 'contact@amcclelland.net', // must match authenticated domain in SendGrid
 		subject: `New Portfolio Contact from ${name || 'Anonymous'}`,
 		text: message,
 		html: `
-       <div style="font-family: sans-serif; line-height: 1.6;">
-    <p><strong>From:</strong> ${name || 'Anonymous'} &lt;${email}&gt;</p>
-    <p><strong>Message:</strong></p>
-    <p>${message.replace(/\n/g, '<br>')}</p>
-  </div>
+      <div style="font-family: sans-serif; line-height: 1.6;">
+        <p><strong>From:</strong> ${name || 'Anonymous'} &lt;${email}&gt;</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      </div>
     `,
 		replyTo: email,
 	};

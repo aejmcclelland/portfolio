@@ -27,6 +27,7 @@ export default function Navbar() {
 						<li>
 							<Link
 								href='/about'
+								onClick={() => setIsOpen(false)}
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								About
 							</Link>
@@ -34,6 +35,7 @@ export default function Navbar() {
 						<li>
 							<Link
 								href='/projects'
+								onClick={() => setIsOpen(false)}
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Projects
 							</Link>
@@ -41,6 +43,7 @@ export default function Navbar() {
 						<li>
 							<Link
 								href='/contact'
+								onClick={() => setIsOpen(false)}
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Contact
 							</Link>
@@ -78,6 +81,7 @@ export default function Navbar() {
 						<li>
 							<Link
 								href='/about'
+								onClick={() => setIsOpen(false)}
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								About
 							</Link>
@@ -85,6 +89,7 @@ export default function Navbar() {
 						<li>
 							<Link
 								href='/projects'
+								onClick={() => setIsOpen(false)}
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Projects
 							</Link>
@@ -92,6 +97,7 @@ export default function Navbar() {
 						<li>
 							<Link
 								href='/contact'
+								onClick={() => setIsOpen(false)}
 								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
 								Contact
 							</Link>

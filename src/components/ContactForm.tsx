@@ -3,6 +3,7 @@ import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { sendContactEmail } from '@/actions/sendContactEmail';
 import ContactSuccessToast from './ContactSuccessToast';
+import { useRouter } from 'next/navigation';
 
 const initialState = { message: '', status: '' };
 
@@ -19,6 +20,7 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
+	const router = useRouter();
 	const [state, formAction] = useActionState(
 		async (prevState: typeof initialState, formData: FormData) => {
 			const grecaptcha = 'grecaptcha' in window
@@ -41,6 +43,12 @@ export default function ContactForm() {
 
 			formData.append('recaptcha', token);
 			const result = await sendContactEmail(prevState, formData);
+
+			if (result.message.includes('successfully')) {
+				setTimeout(() => {
+					router.push('/thank-you');
+				}, 3000);
+			}
 
 			return {
 				message: result.message,

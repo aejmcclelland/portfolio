@@ -4,8 +4,8 @@ import { buildConfig } from 'payload';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob';
-import { Media } from './src/collections/Media';
-import { Users } from './src/collections/Users';
+import {Media} from './collections/Media';
+import {Users}from './collections/Users';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -17,6 +17,12 @@ export default buildConfig({
 	}),
 	admin: {
 		user: Users.slug,
+		components: {
+			graphics: {
+				Logo: 'src/components/payload/Logo',
+				Icon: 'src/components/payload/Icon',
+			},
+		},
 		importMap: {
 			baseDir: path.resolve(dirname),
 		},

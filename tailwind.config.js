@@ -9,6 +9,10 @@ module.exports = {
 			fontFamily: {
 				grotesk: ['var(--font-grotesk)'],
 			},
+			colors: {
+				primary: '#4f46e5', // indigo-600 or your brand color
+				accent: '#d946ef', // optional secondary color
+			},
 		},
 	},
 };

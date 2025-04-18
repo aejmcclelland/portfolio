@@ -13,6 +13,7 @@ export interface Config {
 	collections: {
 		users: User;
 		media: Media;
+		projects: Projects;
 		'payload-preferences': PayloadPreference;
 		'payload-migrations': PayloadMigration;
 	};
@@ -78,6 +79,21 @@ export interface Media {
 	height?: number | null;
 	focalX?: number | null;
 	focalY?: number | null;
+}
+export interface Projects {
+	id: string;
+	title: string;
+	slug: string;
+	description: string;
+	features?: {
+		feature?: string | null;
+	}[];
+	tech?: {
+		name?: string | null;
+	}[];
+	githubLink?: string | null;
+	imageUrl?: string | null;
+	imageAlt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -1,6 +1,16 @@
 import ProjectCard from '@/components/ProjectCard';
+import { getPayload } from 'payload';
+import config from '@payload-config';
+import Image from 'next/image';
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+	const payload = await getPayload({ config });
+
+	const { docs: projects } = await payload.find({
+		collection: 'projects',
+	});
+	console.log(projects);
+
 	return (
 		<section className='min-h-screen px-6 py-20 sm:px-10 bg-base-100'>
 			<div className='max-w-5xl mx-auto text-center'>
@@ -11,20 +21,19 @@ export default function ProjectsPage() {
 				</p>
 
 				<div className='grid gap-8 md:grid-cols-2'>
-					<ProjectCard
-						title="Rebekah's Recipe App"
-						slug='rebekahs-recipes'
-						description='A custom family recipe manager with full CRUD functionality, user authentication, Cloudinary image uploads, and responsive MUI design.'
-						tech={['Next.js', 'MongoDB Atlas', 'Tailwind CSS', 'Cloudinary']}
-						github='https://github.com/aejmcclelland/recipe-app'
-					/>
-					<ProjectCard
-						title='Church Website for Regent Street Presbyterian'
-						slug='regent-street-church'
-						description='A modern, responsive church site built using Next.js 15, Tailwind CSS, Payload CMS, and MongoDB. Designed for ease of content updates by non-technical users.'
-						tech={['Next.js', 'Payload CMS', 'Tailwind CSS', 'MongoDB']}
-						github='https://github.com/aejmcclelland/church-site'
-					/>
+					{projects.map((project: any) => (
+						<div key={project.id}>
+							<ProjectCard
+								imageUrl={project.imageUrl}
+								alt={project.imageAlt || project.title}
+								title={project.title}
+								slug={project.slug}
+								description={project.description}
+								tech={project.tech}
+								github={project.githubLink}
+							/>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>

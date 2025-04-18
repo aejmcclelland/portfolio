@@ -4,6 +4,9 @@ module.exports = {
 		'./src/app/**/*.{js,ts,jsx,tsx}',
 		'./src/components/**/*.{js,ts,jsx,tsx}',
 	],
+	images: {
+		domains: ['res.cloudinary.com'], // Allow Cloudinary images
+	},
 	theme: {
 		extend: {
 			fontFamily: {

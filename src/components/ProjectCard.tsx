@@ -1,48 +1,71 @@
 'use client';
 import { FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ProjectCardProps {
 	title: string;
 	description: string;
-	tech: string[];
+	imageUrl?: string;
+	tech: (string | { name: string })[];
 	github?: string;
 	slug: string;
+	alt?: string;
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({
 	title,
 	description,
+	imageUrl,
 	tech,
 	github,
 	slug,
+	alt,
 }) => {
 	return (
-		<Link href={`/projects/${slug}`} className='no-underline'>
-			<div className='card bg-base-200 shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer'>
-				<h3 className='text-xl font-bold mb-2'>{title}</h3>
-				<p className='mb-3'>{description}</p>
-				<div className='flex flex-wrap gap-2 mb-4'>
-					{tech.map((item) => (
-						<span key={item} className='badge badge-outline'>
-							{item}
-						</span>
-					))}
+		<div className='card max-w-xl mx-auto bg-base-200 shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8'>
+			{imageUrl && (
+				<div className='mb-4'>
+					<Image
+						src={imageUrl}
+						alt={alt || title}
+						width={600}
+						height={400}
+						className='rounded-lg w-full object-cover'
+					/>
 				</div>
-				{github && (
-					<div className='pt-2'>
+			)}
+			<Link href={`/projects/${slug}`} className='no-underline'>
+				<h3 className='text-2xl md:text-3xl font-bold mb-2'>{title}</h3>
+				<p className='mb-4 text-base-content text-sm md:text-base'>
+					{description}
+				</p>
+			</Link>
+			<div className='flex flex-wrap gap-2 mb-4'>
+				{tech?.map((item, idx) => {
+					const name = typeof item === 'string' ? item : item?.name ?? 'Tech';
+					return (
 						<span
-							onClick={(e) => {
-								e.stopPropagation();
-								window.open(github, '_blank');
-							}}
-							className='link text-sm text-primary hover:underline cursor-pointer'>
-							View on GitHub
+							key={`${name}-${idx}`}
+							className='badge badge-outline text-xs md:text-sm'>
+							{name}
 						</span>
-					</div>
-				)}
+					);
+				})}
 			</div>
-		</Link>
+			{github && (
+				<div className='pt-2'>
+					<span
+						onClick={(e) => {
+							e.stopPropagation();
+							window.open(github, '_blank');
+						}}
+						className='link text-sm text-primary hover:underline cursor-pointer'>
+						View on GitHub
+					</span>
+				</div>
+			)}
+		</div>
 	);
 };
 

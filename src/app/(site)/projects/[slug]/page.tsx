@@ -9,13 +9,14 @@ type Project = Config['collections']['projects'];
 export default async function ProjectDetail({
 	params,
 }: {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 }) {
+	const { slug } = await params;
 	const payload = await getPayload({ config });
 	const result = await payload.find({
 		collection: 'projects',
 		where: {
-			slug: { equals: params.slug },
+			slug: { equals: slug },
 		},
 	});
 

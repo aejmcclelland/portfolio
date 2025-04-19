@@ -1,7 +1,9 @@
 import ProjectCard from '@/components/ProjectCard';
 import { getPayload } from 'payload';
 import config from '@payload-config';
-import Image from 'next/image';
+import type { Config } from '@/payload-types';
+
+type Project = Config['collections']['projects'];
 
 export default async function ProjectsPage() {
 	const payload = await getPayload({ config });
@@ -9,7 +11,6 @@ export default async function ProjectsPage() {
 	const { docs: projects } = await payload.find({
 		collection: 'projects',
 	});
-	console.log(projects);
 
 	return (
 		<section className='min-h-screen px-6 py-20 sm:px-10 bg-base-100'>
@@ -21,19 +22,26 @@ export default async function ProjectsPage() {
 				</p>
 
 				<div className='grid gap-8 md:grid-cols-2'>
-					{projects.map((project: any) => (
-						<div key={project.id}>
-							<ProjectCard
-								imageUrl={project.imageUrl}
-								alt={project.imageAlt || project.title}
-								title={project.title}
-								slug={project.slug}
-								description={project.description}
-								tech={project.tech}
-								github={project.githubLink}
-							/>
-						</div>
-					))}
+					{projects.map((project) => {
+						const typedProject = project as Project;
+						return (
+							<div key={typedProject.id}>
+								<ProjectCard
+									imageUrl={typedProject.imageUrl ?? undefined}
+									alt={typedProject.imageAlt || typedProject.title}
+									title={typedProject.title}
+									slug={typedProject.slug}
+									description={typedProject.description}
+									tech={
+										typedProject.tech?.map((item) => ({
+											name: typeof item === 'string' ? item : item?.name ?? '',
+										})) ?? []
+									}
+									github={typedProject.githubLink ?? undefined}
+								/>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		</section>

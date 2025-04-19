@@ -11,7 +11,6 @@ export default async function ProjectDetail({
 }: {
 	params: { slug: string };
 }) {
-	const { slug } = params;
 	const payload = await getPayload({ config });
 	const result = await payload.find({
 		collection: 'projects',

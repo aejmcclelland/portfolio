@@ -7,7 +7,7 @@ interface ProjectCardProps {
 	title: string;
 	description: string;
 	imageUrl?: string;
-	tech: (string | { name: string })[];
+	tech: { name: string }[];
 	github?: string;
 	slug: string;
 	alt?: string;
@@ -42,16 +42,13 @@ const ProjectCard: FC<ProjectCardProps> = ({
 				</p>
 			</Link>
 			<div className='flex flex-wrap gap-2 mb-4'>
-				{tech?.map((item, idx) => {
-					const name = typeof item === 'string' ? item : item?.name ?? 'Tech';
-					return (
-						<span
-							key={`${name}-${idx}`}
-							className='badge badge-outline text-xs md:text-sm'>
-							{name}
-						</span>
-					);
-				})}
+				{tech?.map((item, idx) => (
+					<span
+						key={`${item.name ?? 'tech'}-${idx}`}
+						className='badge badge-outline text-xs md:text-sm'>
+						{item.name}
+					</span>
+				))}
 			</div>
 			{github && (
 				<div className='pt-2'>

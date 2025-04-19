@@ -27,13 +27,15 @@ export default async function ProjectDetail({
 	return (
 		<div className='min-h-screen max-w-4xl mx-auto px-4 py-16 bg-base-100'>
 			{project.imageUrl && (
-				<Image
-					src={project.imageUrl}
-					alt={project.imageAlt || project.title}
-					width={800}
-					height={450}
-					className='rounded-lg mb-6'
-				/>
+				<div className="flex justify-center mb-6">
+					<Image
+						src={project.imageUrl}
+						alt={project.imageAlt || project.title}
+						width={800}
+						height={450}
+						className="rounded-lg object-contain"
+					/>
+				</div>
 			)}
 			<h1 className='text-3xl font-bold mb-4'>{project.title}</h1>
 			<p className='mb-6 text-base-content/80'>{project.description}</p>

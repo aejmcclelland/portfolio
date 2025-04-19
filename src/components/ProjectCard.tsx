@@ -31,7 +31,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 						alt={alt || title}
 						width={600}
 						height={400}
-						className='rounded-lg w-full object-cover'
+						className='rounded-lg w-full object-contain bg-base-200'
 					/>
 				</div>
 			)}

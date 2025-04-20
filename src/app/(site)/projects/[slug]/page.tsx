@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+export const dynamic = 'force-dynamic';
 import { getPayload } from 'payload';
 import config from '@/payload.config';
 import type { Config } from '@/payload-types';
@@ -27,13 +28,13 @@ export default async function ProjectDetail({
 	return (
 		<div className='min-h-screen max-w-4xl mx-auto px-4 py-16 bg-base-100'>
 			{project.imageUrl && (
-				<div className="flex justify-center mb-6">
+				<div className='flex justify-center mb-6'>
 					<Image
 						src={project.imageUrl}
 						alt={project.imageAlt || project.title}
 						width={800}
 						height={450}
-						className="rounded-lg object-contain"
+						className='rounded-lg object-contain'
 					/>
 				</div>
 			)}

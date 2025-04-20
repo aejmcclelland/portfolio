@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/ProjectCard';
 import { getPayload } from 'payload';
 import config from '@payload-config';

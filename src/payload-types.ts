@@ -75,6 +75,7 @@ export interface Projects {
 	githubLink?: string | null;
 	imageUrl?: string | null;
 	imageAlt?: string | null;
+	liveLink?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

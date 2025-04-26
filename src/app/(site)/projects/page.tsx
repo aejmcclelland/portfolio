@@ -2,7 +2,7 @@ export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/ProjectCard';
 import { getPayload } from 'payload';
 import config from '@payload-config';
-import { Project } from '@/types/projects';
+import { Project } from '@/types';
 
 export default async function ProjectsPage() {
 	const payload = await getPayload({ config });

@@ -2,9 +2,6 @@ export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/ProjectCard';
 import { getPayload } from 'payload';
 import config from '@payload-config';
-import type { Config } from '@/payload-types';
-
-type Project = Config['collections']['projects'];
 
 export default async function ProjectsPage() {
 	const payload = await getPayload({ config });
@@ -24,7 +21,17 @@ export default async function ProjectsPage() {
 
 				<div className='grid gap-8 md:grid-cols-2'>
 					{projects.map((project) => {
-						const typedProject = project as any;
+						const typedProject = project as {
+							id: string;
+							title: string;
+							slug: string;
+							description: string;
+							imageUrl?: string;
+							imageAlt?: string;
+							tech?: ({ name?: string } | string)[];
+							githubLink?: string;
+							liveLink?: string;
+						};
 						return (
 							<div key={typedProject.id}>
 								<ProjectCard

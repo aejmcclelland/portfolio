@@ -4,6 +4,7 @@ import { getPayload } from 'payload';
 import config from '@/payload.config';
 import type { Config } from '@/payload-types';
 import Image from 'next/image';
+import WobbleLink from '@/components/WobbleLink';
 
 type Project = Config['collections']['projects'];
 
@@ -52,6 +53,12 @@ export default async function ProjectDetail({
 					<li key={idx}>{f?.feature}</li>
 				))}
 			</ul>
+			<WobbleLink
+				href='/projects'
+				className='text-primary hover:underline text-sm mb-6 inline-block'
+				ariaLabel='Back to Projects'>
+				← Back to Projects
+			</WobbleLink>
 		</div>
 	);
 }

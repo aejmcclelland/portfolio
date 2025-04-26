@@ -27,11 +27,11 @@ const ProjectCard: FC<ProjectCardProps> = ({
 	alt,
 }) => {
 	return (
-		<Link
-			href={`/projects/${slug}`}
-			className='no-underline'
-			aria-label={`View project: ${title}`}>
-			<div className='card max-w-xl mx-auto bg-base-200 shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8'>
+		<div className='card max-w-xl mx-auto bg-base-200 shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8'>
+			<Link
+				href={`/projects/${slug}`}
+				className='no-underline'
+				aria-label={`View project: ${title}`}>
 				{imageUrl && (
 					<div className='mb-4'>
 						<Image
@@ -56,36 +56,36 @@ const ProjectCard: FC<ProjectCardProps> = ({
 						</span>
 					))}
 				</div>
-				{(githubLink || liveLink) && (
-					<div className='flex justify-center items-center gap-6 mt-6'>
-						{githubLink && (
-							<a
-								href={githubLink}
-								target='_blank'
-								rel='noopener noreferrer'
-								aria-label='GitHub'
-								onClick={(e) => e.stopPropagation()}>
-								<WobbleIcon>
-									<FaGithub className='w-8 h-8 text-base-content hover:text-primary transition-colors duration-300' />
-								</WobbleIcon>
-							</a>
-						)}
-						{liveLink && (
-							<a
-								href={liveLink}
-								target='_blank'
-								rel='noopener noreferrer'
-								aria-label='Live Site'
-								onClick={(e) => e.stopPropagation()}>
-								<WobbleIcon>
-									<FaLaptopCode className='w-8 h-8 text-base-content hover:text-primary transition-colors duration-300' />
-								</WobbleIcon>
-							</a>
-						)}
-					</div>
-				)}
-			</div>
-		</Link>
+			</Link>
+			{(githubLink || liveLink) && (
+				<div className='flex justify-center items-center gap-6 mt-6'>
+					{githubLink && (
+						<a
+							href={githubLink}
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='GitHub'
+							onClick={(e) => e.stopPropagation()}>
+							<WobbleIcon>
+								<FaGithub className='w-8 h-8 text-base-content hover:text-primary transition-colors duration-300' />
+							</WobbleIcon>
+						</a>
+					)}
+					{liveLink && (
+						<a
+							href={liveLink}
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='Live Site'
+							onClick={(e) => e.stopPropagation()}>
+							<WobbleIcon>
+								<FaLaptopCode className='w-8 h-8 text-base-content hover:text-primary transition-colors duration-300' />
+							</WobbleIcon>
+						</a>
+					)}
+				</div>
+			)}
+		</div>
 	);
 };
 

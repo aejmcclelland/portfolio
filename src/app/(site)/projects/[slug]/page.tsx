@@ -53,12 +53,15 @@ export default async function ProjectDetail({
 					<li key={idx}>{f?.feature}</li>
 				))}
 			</ul>
-			<WobbleLink
-				href='/projects'
-				className='text-primary hover:underline text-sm mb-6 inline-block'
-				ariaLabel='Back to Projects'>
-				← Back to Projects
-			</WobbleLink>
+			<div className="flex justify-end mb-8">
+				<WobbleLink
+					href="/projects"
+					className="text-sm font-semibold rounded-lg bg-secondary px-4 py-2 text-secondary-content hover:underline"
+					ariaLabel="Back to Projects"
+				>
+					← Back to Projects
+				</WobbleLink>
+			</div>
 		</div>
 	);
 }

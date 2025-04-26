@@ -2,15 +2,18 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import WobbleIcon from './WobbleIcon';
+import { FaGithub, FaLaptopCode } from 'react-icons/fa';
 
 interface ProjectCardProps {
 	title: string;
 	description: string;
 	imageUrl?: string;
 	tech: { name: string }[];
-	github?: string;
 	slug: string;
 	alt?: string;
+	githubLink?: string;
+	liveLink?: string;
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({
@@ -18,7 +21,8 @@ const ProjectCard: FC<ProjectCardProps> = ({
 	description,
 	imageUrl,
 	tech,
-	github,
+	githubLink,
+	liveLink,
 	slug,
 	alt,
 }) => {
@@ -50,16 +54,30 @@ const ProjectCard: FC<ProjectCardProps> = ({
 					</span>
 				))}
 			</div>
-			{github && (
-				<div className='pt-2'>
-					<span
-						onClick={(e) => {
-							e.stopPropagation();
-							window.open(github, '_blank');
-						}}
-						className='link text-sm text-primary hover:underline cursor-pointer'>
-						View on GitHub
-					</span>
+			{(githubLink || liveLink) && (
+				<div className='flex justify-center items-center gap-6 mt-6'>
+					{githubLink && (
+						<a
+							href={githubLink}
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='GitHub'>
+							<WobbleIcon>
+								<FaGithub className='w-8 h-8 text-base-content hover:text-primary transition-colors duration-300' />
+							</WobbleIcon>
+						</a>
+					)}
+					{liveLink && (
+						<a
+							href={liveLink}
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='Live Site'>
+							<WobbleIcon>
+								<FaLaptopCode className='w-8 h-8 text-base-content hover:text-primary transition-colors duration-300' />
+							</WobbleIcon>
+						</a>
+					)}
 				</div>
 			)}
 		</div>

@@ -24,7 +24,7 @@ export default async function ProjectsPage() {
 
 				<div className='grid gap-8 md:grid-cols-2'>
 					{projects.map((project) => {
-						const typedProject = project as Project;
+						const typedProject = project as any;
 						return (
 							<div key={typedProject.id}>
 								<ProjectCard
@@ -34,11 +34,15 @@ export default async function ProjectsPage() {
 									slug={typedProject.slug}
 									description={typedProject.description}
 									tech={
-										typedProject.tech?.map((item) => ({
-											name: typeof item === 'string' ? item : item?.name ?? '',
-										})) ?? []
+										typedProject.tech?.map(
+											(item: { name?: string } | string) => ({
+												name:
+													typeof item === 'string' ? item : item?.name ?? '',
+											})
+										) ?? []
 									}
-									github={typedProject.githubLink ?? undefined}
+									githubLink={typedProject.githubLink ?? undefined}
+									liveLink={typedProject.liveLink ?? undefined}
 								/>
 							</div>
 						);

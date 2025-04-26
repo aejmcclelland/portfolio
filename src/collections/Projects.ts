@@ -45,6 +45,12 @@ export const Projects: CollectionConfig = {
 			],
 		},
 		{
+			name: 'liveLink',
+			type: 'text',
+			label: 'Live Link',
+			required: false,
+		},
+		{
 			name: 'githubLink',
 			type: 'text',
 			label: 'GitHub Link',

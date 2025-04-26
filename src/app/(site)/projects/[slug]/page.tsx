@@ -27,8 +27,11 @@ export default async function ProjectDetail({
 
 	return (
 		<div className='min-h-screen max-w-4xl mx-auto px-4 py-16 bg-base-100'>
+			<h1 className='inline-block text-xl font-bold mb-6 rounded-lg bg-secondary p-3 text-secondary-content'>
+				{project.title}
+			</h1>
 			{project.imageUrl && (
-				<div className='flex justify-center mb-6'>
+				<div className='flex justify-center rounded-lg bg-primary/10 p-4 mb-6'>
 					<Image
 						src={project.imageUrl}
 						alt={project.imageAlt || project.title}
@@ -38,10 +41,13 @@ export default async function ProjectDetail({
 					/>
 				</div>
 			)}
-			<h1 className='text-3xl font-bold mb-4'>{project.title}</h1>
-			<p className='mb-6 text-base-content/80'>{project.description}</p>
-			<h2 className='text-xl font-semibold mb-2'>Key Features</h2>
-			<ul className='list-disc pl-6 space-y-1 text-base'>
+			<div className='mb-6 rounded-lg bg-primary/10 p-4 text-base-content'>
+				{project.description}
+			</div>
+			<h2 className='inline-block text-xl font-semibold mb-4 rounded-lg bg-secondary p-3 text-secondary-content'>
+				Key Features
+			</h2>
+			<ul className='list-disc pl-6 space-y-1 rounded-lg bg-primary/10 p-4 text-base-content'>
 				{project.features?.map((f, idx) => (
 					<li key={idx}>{f?.feature}</li>
 				))}

@@ -67,7 +67,11 @@ const ProjectCard: FC<ProjectCardProps> = ({
 							aria-label='GitHub'
 							onClick={(e) => e.stopPropagation()}>
 							<WobbleIcon>
-								<FaGithub className='w-8 h-8 text-base-content hover:text-primary transition-colors duration-300' />
+								<FaGithub
+									className='w-8 h-8 text-base-content hover:text-secondary
+
+ transition-colors duration-300'
+								/>
 							</WobbleIcon>
 						</a>
 					)}

@@ -28,7 +28,7 @@ export default function Navbar() {
 							<Link
 								href='/about'
 								onClick={() => setIsOpen(false)}
-								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								className='text-lg hover:text-primary transition-colors duration-200'>
 								About
 							</Link>
 						</li>
@@ -36,7 +36,7 @@ export default function Navbar() {
 							<Link
 								href='/projects'
 								onClick={() => setIsOpen(false)}
-								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								className='text-lg hover:text-primary transition-colors duration-200'>
 								Projects
 							</Link>
 						</li>
@@ -44,7 +44,7 @@ export default function Navbar() {
 							<Link
 								href='/contact'
 								onClick={() => setIsOpen(false)}
-								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								className='text-lg hover:text-primary transition-colors duration-200'>
 								Contact
 							</Link>
 						</li>
@@ -83,7 +83,7 @@ export default function Navbar() {
 							<Link
 								href='/about'
 								onClick={() => setIsOpen(false)}
-								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								className='text-lg hover:text-primary transition-colors duration-200'>
 								About
 							</Link>
 						</li>
@@ -91,7 +91,7 @@ export default function Navbar() {
 							<Link
 								href='/projects'
 								onClick={() => setIsOpen(false)}
-								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								className='text-lg hover:text-primary transition-colors duration-200'>
 								Projects
 							</Link>
 						</li>
@@ -99,7 +99,7 @@ export default function Navbar() {
 							<Link
 								href='/contact'
 								onClick={() => setIsOpen(false)}
-								className='text-lg font-semibold hover:text-primary transition-colors duration-200'>
+								className='text-lg hover:text-primary transition-colors duration-200'>
 								Contact
 							</Link>
 						</li>

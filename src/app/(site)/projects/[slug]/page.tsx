@@ -28,11 +28,14 @@ export default async function ProjectDetail({
 
 	return (
 		<div className='min-h-screen max-w-4xl mx-auto px-4 py-16 bg-base-100'>
-			<h1 className='inline-block text-xl font-bold mb-6 rounded-lg bg-secondary p-3 text-secondary-content'>
-				{project.title}
-			</h1>
+			<div className='flex justify-center p-1 mb-2'>
+				<h1 className='inline-block text-3xl mb-6 justify-center p-3 text-secondary-content'>
+					{project.title}
+				</h1>
+			</div>
+
 			{project.imageUrl && (
-				<div className='flex justify-center rounded-lg bg-primary/10 p-4 mb-6'>
+				<div className='flex justify-center rounded-lg bg-primary-content/10 p-4 mb-6'>
 					<Image
 						src={project.imageUrl}
 						alt={project.imageAlt || project.title}
@@ -45,7 +48,7 @@ export default async function ProjectDetail({
 			<div className='mb-6 rounded-lg bg-primary/10 p-4 text-base-content'>
 				{project.description}
 			</div>
-			<h2 className='inline-block text-xl font-semibold mb-4 rounded-lg bg-secondary p-3 text-secondary-content'>
+			<h2 className='inline-block text-l font-semibold mb-4 rounded-lg bg-primary p-3 text-secondary-content'>
 				Key Features
 			</h2>
 			<ul className='list-disc pl-6 space-y-1 rounded-lg bg-primary/10 p-4 text-base-content'>
@@ -53,12 +56,11 @@ export default async function ProjectDetail({
 					<li key={idx}>{f?.feature}</li>
 				))}
 			</ul>
-			<div className="flex justify-end mb-8">
+			<div className='flex justify-end mb-8'>
 				<WobbleLink
-					href="/projects"
-					className="text-sm font-semibold rounded-lg bg-secondary px-4 py-2 text-secondary-content hover:underline"
-					ariaLabel="Back to Projects"
-				>
+					href='/projects'
+					className='text-sm rounded-lg bg-primary px-4 py-2 text-secondary-content hover:underline'
+					ariaLabel='Back to Projects'>
 					← Back to Projects
 				</WobbleLink>
 			</div>

@@ -5,6 +5,8 @@ import config from '@/payload.config';
 import type { Config } from '@/payload-types';
 import Image from 'next/image';
 import WobbleLink from '@/components/WobbleLink';
+import WobbleIcon from '@/components/WobbleIcon';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 type Project = Config['collections']['projects'];
 
@@ -48,7 +50,7 @@ export default async function ProjectDetail({
 			<div className='mb-6 rounded-lg bg-primary/10 p-4 text-base-content'>
 				{project.description}
 			</div>
-			<h2 className='inline-block text-l font-semibold mb-4 rounded-lg bg-primary p-3 text-secondary-content'>
+			<h2 className='inline-block text-2xl font-semibold mb-4 p-3 text-secondary-content'>
 				Key Features
 			</h2>
 			<ul className='list-disc pl-6 space-y-1 rounded-lg bg-primary/10 p-4 text-base-content'>
@@ -56,13 +58,37 @@ export default async function ProjectDetail({
 					<li key={idx}>{f?.feature}</li>
 				))}
 			</ul>
-			<div className='flex justify-end mb-8'>
-				<WobbleLink
-					href='/projects'
-					className='text-sm rounded-lg bg-primary px-4 py-2 text-secondary-content hover:underline'
-					ariaLabel='Back to Projects'>
-					← Back to Projects
-				</WobbleLink>
+			<div className='flex flex-col p-6 items-center'>
+				<nav className='flex gap-12'>
+					<WobbleIcon>
+						<a
+							href='https://github.com/aejmcclelland'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='GitHub'>
+							<FaGithub className='w-9 h-9 text-neutral-content hover:text-primary' />
+						</a>
+					</WobbleIcon>
+
+					<WobbleIcon>
+						<a
+							href='https://linkedin.com/in/aejmcclelland'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='LinkedIn'>
+							<FaLinkedin className='w-9 h-9 text-neutral-content hover:text-primary' />
+						</a>
+					</WobbleIcon>
+				</nav>
+
+				<div className='mt-4 mb-8 text-center'>
+					<WobbleLink
+						href='/projects'
+						className='text-sm rounded-lg bg-primary px-4 py-2 text-secondary-content hover:underline'
+						ariaLabel='Back to Projects'>
+						← Back to Projects
+					</WobbleLink>
+				</div>
 			</div>
 		</div>
 	);

@@ -14,23 +14,27 @@ export default function Footer() {
 				</aside>
 				<nav className='flex gap-6 pr-6 md:place-self-center md:justify-self-end'>
 					<WobbleIcon>
-						<a
-							href='https://github.com/aejmcclelland'
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='GitHub'>
-							<FaGithub className='w-6 h-6 text-neutral-content hover:text-primary' />
-						</a>
+						<>
+							<a
+								href='https://github.com/aejmcclelland'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='GitHub'>
+								<FaGithub className='w-9 h-9 text-neutral-content hover:text-primary' />
+							</a>
+						</>
 					</WobbleIcon>
 
 					<WobbleIcon>
-						<a
-							href='https://linkedin.com/in/aejmcclelland'
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='LinkedIn'>
-							<FaLinkedin className='w-6 h-6 text-neutral-content hover:text-primary' />
-						</a>
+						<>
+							<a
+								href='https://linkedin.com/in/aejmcclelland'
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='LinkedIn'>
+								<FaLinkedin className='w-9 h-9 text-neutral-content hover:text-primary' />
+							</a>
+						</>
 					</WobbleIcon>
 				</nav>
 			</div>

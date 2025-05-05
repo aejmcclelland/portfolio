@@ -13,7 +13,6 @@ interface ProjectCardProps {
 	images?: { src: string; alt?: string }[];
 	tech?: { name: string }[];
 	slug: string;
-	alt?: string;
 	githubLink?: string;
 	liveLink?: string;
 }
@@ -26,7 +25,6 @@ const ProjectCard: FC<ProjectCardProps> = ({
 	githubLink,
 	liveLink,
 	slug,
-	alt,
 }) => {
 	return (
 		<div className='card max-w-xl mx-auto bg-base-200 shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8'>

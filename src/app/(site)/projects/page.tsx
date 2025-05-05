@@ -2,25 +2,38 @@ export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/ProjectCard';
 import { getPayload } from 'payload';
 import config from '@payload-config';
+
 import { Project } from '@/types';
+
+type RawProject = {
+	id: string;
+	title: string;
+	slug: string;
+	description: string;
+	images?: { imageUrl: string; caption?: string }[];
+	tech?: (string | { name?: string })[];
+	githubLink?: string;
+	liveLink?: string;
+};
 
 export default async function ProjectsPage() {
 	const payload = await getPayload({ config });
 
-	const { docs: projects } = await payload.find({
+	const findResult = await payload.find({
 		collection: 'projects',
 	});
+	const projects = findResult.docs as RawProject[];
 	// Transform raw payload docs into strongly-typed Project objects
-	const projectList: Project[] = projects.map((p: any) => ({
+	const projectList: Project[] = projects.map((p) => ({
 		id: p.id,
 		title: p.title,
 		slug: p.slug,
 		description: p.description,
-		images: p.images?.map((img: any) => ({
+		images: p.images?.map((img) => ({
 			src: img.imageUrl,
 			alt: img.caption || p.title,
 		})),
-		tech: (p.tech || []).map((t: any) =>
+		tech: (p.tech || []).map((t) =>
 			typeof t === 'string' ? { name: t } : { name: t.name || '' }
 		),
 		githubLink: p.githubLink,

@@ -4,6 +4,7 @@ import { getPayload } from 'payload';
 import config from '@/payload.config';
 import type { Config } from '@/payload-types';
 import Image from 'next/image';
+import ProjectCarousel from '@/components/ProjectCarousel';
 import WobbleLink from '@/components/WobbleLink';
 import WobbleIcon from '@/components/WobbleIcon';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
@@ -24,7 +25,23 @@ export default async function ProjectDetail({
 		},
 	});
 
-	const project = result.docs[0] as Project;
+	const projectRaw = result.docs[0];
+	type ProjectWithMedia = Project & {
+		images?: { imageUrl: string; caption?: string }[];
+		coverImageUrl?: string;
+		imageAlt?: string;
+	};
+	const project = projectRaw as ProjectWithMedia;
+
+	// --- normalize gallery images into a typed array, fallback to coverImageUrl ---
+	type GalleryImage = { src: string; alt: string };
+
+	const galleryImages: GalleryImage[] =
+		project.images?.map(({ imageUrl, caption }) => ({
+			src: imageUrl,
+			alt: caption || project.title,
+		})) ?? [];
+	// --- end normalization ---
 
 	if (!project) return notFound();
 
@@ -36,17 +53,33 @@ export default async function ProjectDetail({
 				</h1>
 			</div>
 
-			{project.imageUrl && (
+			{galleryImages.length > 1 ? (
+				<div className='flex justify-center mb-6'>
+					<div className='relative w-full max-w-3xl aspect-video overflow-hidden rounded-lg bg-primary-content/10'>
+						<ProjectCarousel images={galleryImages} />
+					</div>
+				</div>
+			) : galleryImages.length === 1 ? (
 				<div className='flex justify-center rounded-lg bg-primary-content/10 p-4 mb-6'>
 					<Image
-						src={project.imageUrl}
+						src={galleryImages[0].src}
+						alt={galleryImages[0].alt}
+						width={800}
+						height={450}
+						className='rounded-lg object-contain'
+					/>
+				</div>
+			) : project.coverImageUrl ? (
+				<div className='flex justify-center rounded-lg bg-primary-content/10 p-4 mb-6'>
+					<Image
+						src={project.coverImageUrl}
 						alt={project.imageAlt || project.title}
 						width={800}
 						height={450}
 						className='rounded-lg object-contain'
 					/>
 				</div>
-			)}
+			) : null}
 			<div className='mb-6 rounded-lg bg-primary/10 p-4 text-base-content'>
 				{project.description}
 			</div>

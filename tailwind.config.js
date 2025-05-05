@@ -5,7 +5,26 @@ module.exports = {
 		'./src/components/**/*.{js,ts,jsx,tsx}',
 	],
 	images: {
-		domains: ['res.cloudinary.com'], // Allow Cloudinary images
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'res.cloudinary.com',
+				// match any path under your Cloudinary account
+				pathname: '/dqeszgo28/**',
+			},
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				port: '3000',
+				pathname: '/media/**',
+			},
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				port: '3000',
+				pathname: '/api/media/file/**',
+			},
+		], //Allow Cloudinary images
 	},
 	theme: {
 		extend: {
@@ -17,5 +36,9 @@ module.exports = {
 				accent: '#d946ef', // optional secondary color
 			},
 		},
+		plugins: [
+			require('@tailwindcss/aspect-ratio'),
+			// any other plugins…
+		],
 	},
 };

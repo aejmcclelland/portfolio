@@ -57,14 +57,40 @@ export const Projects: CollectionConfig = {
 			required: false,
 		},
 		{
-			name: 'imageUrl',
-			type: 'text',
-			required: false,
+			name: 'images',
+			type: 'array',
+			label: 'Gallery Images',
+			fields: [
+				{
+					name: 'imageUrl',
+					type: 'text',
+					required: true,
+					admin: {
+						description: 'Paste the Cloudinary URL for this image',
+					},
+				},
+				{
+					name: 'caption',
+					type: 'text',
+					required: false,
+					admin: {
+						description: 'Optional caption for this image',
+					},
+				},
+			],
 		},
 		{
 			name: 'imageAlt',
 			type: 'text',
 			required: false,
+		},
+		{
+			name: 'coverImageUrl',
+			type: 'text',
+			required: false,
+			admin: {
+				description: 'Paste the Cloudinary URL for the post cover image',
+			},
 		},
 	],
 };

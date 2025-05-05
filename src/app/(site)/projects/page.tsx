@@ -10,6 +10,22 @@ export default async function ProjectsPage() {
 	const { docs: projects } = await payload.find({
 		collection: 'projects',
 	});
+	// Transform raw payload docs into strongly-typed Project objects
+	const projectList: Project[] = projects.map((p: any) => ({
+		id: p.id,
+		title: p.title,
+		slug: p.slug,
+		description: p.description,
+		images: p.images?.map((img: any) => ({
+			src: img.imageUrl,
+			alt: img.caption || p.title,
+		})),
+		tech: (p.tech || []).map((t: any) =>
+			typeof t === 'string' ? { name: t } : { name: t.name || '' }
+		),
+		githubLink: p.githubLink,
+		liveLink: p.liveLink,
+	}));
 
 	return (
 		<section className='min-h-screen px-6 py-20 sm:px-10 bg-base-100'>
@@ -21,26 +37,21 @@ export default async function ProjectsPage() {
 				</p>
 
 				<div className='grid gap-8 md:grid-cols-2'>
-					{projects.map((project) => {
-						const typedProject = project as Project;
+					{projectList.map((project) => {
 						return (
-							<div key={typedProject.id}>
+							<div key={project.id}>
 								<ProjectCard
-									imageUrl={typedProject.imageUrl ?? undefined}
-									alt={typedProject.imageAlt || typedProject.title}
-									title={typedProject.title}
-									slug={typedProject.slug}
-									description={typedProject.description}
-									tech={
-										typedProject.tech?.map(
-											(item: { name?: string } | string) => ({
-												name:
-													typeof item === 'string' ? item : item?.name ?? '',
-											})
-										) ?? []
-									}
-									githubLink={typedProject.githubLink ?? undefined}
-									liveLink={typedProject.liveLink ?? undefined}
+									images={project.images}
+									title={project.title}
+									slug={project.slug}
+									description={project.description}
+									tech={(project.tech || []).map((t) =>
+										typeof t === 'string'
+											? { name: t }
+											: { name: (t as { name?: string }).name || '' }
+									)}
+									githubLink={project.githubLink}
+									liveLink={project.liveLink}
 								/>
 							</div>
 						);

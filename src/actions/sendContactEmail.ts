@@ -52,7 +52,7 @@ export async function sendContactEmail(
 	const verifyData = await verifyRes.json();
 	
 	if (!verifyData.success || verifyData.score < 0.5) {
-		console.error('❌ reCAPTCHA failed:', verifyData);
+		console.error('reCAPTCHA failed:', verifyData);
 		return { message: 'reCAPTCHA verification failed. Please try again.' };
 	}
 

@@ -62,7 +62,7 @@ export default function ContactForm() {
           message: result.message,
           status: result.message.toLowerCase().includes('success') ? 'success' : 'error',
         };
-      } catch (error) {
+      } catch {
         return {
           message: 'reCAPTCHA validation failed. Please try again.',
           status: 'error',

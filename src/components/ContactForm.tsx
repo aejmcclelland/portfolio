@@ -1,83 +1,56 @@
 'use client';
-import { useActionState } from 'react';
-import { useFormStatus } from 'react-dom';
-import { sendContactEmail } from '@/actions/sendContactEmail';
+import { useState } from 'react';
 import ContactSuccessToast from './ContactSuccessToast';
+import { sendContactEmail } from '@/actions/sendContactEmail';
 import { useRouter } from 'next/navigation';
 
 declare global {
   interface Window {
     grecaptcha?: {
-      ready: (callback: () => void) => void;
       execute: (siteKey: string, options: { action: string }) => Promise<string>;
     };
   }
 }
 
-const initialState = { message: '', status: '' };
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <button
-      type="submit"
-      className="btn btn-primary w-full sm:w-fit"
-      disabled={pending}
-    >
-      {pending ? 'Sending...' : 'Send Message'}
-    </button>
-  );
-}
-
 export default function ContactForm() {
   const router = useRouter();
-  const [state, formAction] = useActionState(
-    async (prevState: typeof initialState, formData: FormData) => {
-      if (typeof window === 'undefined' || !window.grecaptcha) {
-        return {
-          message: 'reCAPTCHA not ready. Please try again later.',
-          status: 'error',
-        };
+  const [status, setStatus] = useState<'success' | 'error' | ''>('');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!window.grecaptcha) {
+      setStatus('error');
+      return;
+    }
+
+    try {
+      const token = await window.grecaptcha.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+        { action: 'submit' }
+      );
+
+      const formData = new FormData(event.currentTarget);
+      formData.append('recaptcha', token);
+
+      const result = await sendContactEmail({ message: '' }, formData);
+
+      setStatus(result.message.toLowerCase().includes('success') ? 'success' : 'error');
+
+      if (result.message.toLowerCase().includes('success')) {
+        setTimeout(() => router.push('/thank-you'), 2000);
       }
-
-      try {
-        const token = await new Promise<string>((resolve, reject) => {
-          window.grecaptcha!.ready(() => {
-            window.grecaptcha!.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {
-              action: 'submit',
-            })
-            .then(resolve)
-            .catch(reject);
-          });
-        });
-
-        formData.append('recaptcha', token);
-        const result = await sendContactEmail(prevState, formData);
-
-        if (result.message.toLowerCase().includes('success')) {
-          setTimeout(() => router.push('/thank-you'), 2000);
-        }
-
-        return {
-          message: result.message,
-          status: result.message.toLowerCase().includes('success') ? 'success' : 'error',
-        };
-      } catch {
-        return {
-          message: 'reCAPTCHA validation failed. Please try again.',
-          status: 'error',
-        };
-      }
-    },
-    initialState
-  );
+    } catch {
+      setStatus('error');
+    }
+  };
 
   return (
     <section id="contact" className="py-16 px-4 sm:px-6 md:px-8 lg:px-10 bg-base-100">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold mb-6 text-center">Get in Touch</h2>
-        <ContactSuccessToast status={state.status} />
-        <form action={formAction} className="bg-base-200 shadow-md p-6 rounded-xl space-y-6">
+        <ContactSuccessToast status={status} />
+        <form onSubmit={handleSubmit} className="bg-base-200 shadow-md p-6 rounded-xl space-y-6">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="form-control w-full">
               <label className="label justify-start">
@@ -116,7 +89,9 @@ export default function ContactForm() {
           </div>
 
           <div className="form-control w-full">
-            <SubmitButton />
+            <button type="submit" className="btn btn-primary w-full sm:w-fit">
+              Send Message
+            </button>
           </div>
         </form>
 

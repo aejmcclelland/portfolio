@@ -18,34 +18,34 @@ export default function ContactForm() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    // Safety check for grecaptcha
-    if (!window.grecaptcha || !process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY) {
-      setStatus('error');
-      return;
-    }
-
     try {
+      if (!window.grecaptcha || !process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY) {
+        console.error('reCAPTCHA not ready');
+        setStatus('error');
+        return;
+      }
+
       const token = await window.grecaptcha.execute(
         process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
         { action: 'submit' }
       );
+
       formData.append('recaptcha', token);
 
       const result = await sendContactEmail({ message: '' }, formData);
 
       if (result.message.toLowerCase().includes('success')) {
         setStatus('success');
-        form.reset(); // clear form fields after success
+        form.reset();
         setTimeout(() => router.push('/thank-you'), 2000);
       } else {
         setStatus('error');
       }
     } catch (error) {
-      console.error('Form submission failed:', error);
+      console.error('Error submitting form:', error);
       setStatus('error');
     }
   };

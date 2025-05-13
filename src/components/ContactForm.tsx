@@ -56,7 +56,7 @@ export default function ContactForm() {
               <label className="label justify-start">
                 <span className="label-text font-semibold">Preferred Name</span>
               </label>
-              <input type="text" name="name" placeholder="Andrew" className="input input-bordered w-full" />
+              <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
             </div>
 
             <div className="form-control w-full">
@@ -71,7 +71,7 @@ export default function ContactForm() {
             <label className="label justify-start">
               <span className="label-text font-semibold">Your Phone (optional)</span>
             </label>
-            <input type="tel" name="phone" placeholder="+44 7700 900123" className="input input-bordered w-full" />
+            <input type="tel" name="phone" placeholder="+44 1234 00123" className="input input-bordered w-full" />
           </div>
 
           <div className="form-control w-full">

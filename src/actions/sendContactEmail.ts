@@ -28,8 +28,10 @@ export async function sendContactEmail(
         <p><strong>From:</strong> ${name || 'Anonymous'} &lt;${email}&gt;</p>
         <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
         <p><strong>LinkedIn:</strong> ${
-          linkedin ? `<a href="${linkedin}" target="_blank">${linkedin}</a>` : 'N/A'
-        }</p>
+					linkedin
+						? `<a href="${linkedin}" target="_blank">${linkedin}</a>`
+						: 'N/A'
+				}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       </div>
@@ -49,8 +51,10 @@ export async function sendContactEmail(
 		}
 	);
 
+	console.log('reCAPTCHA token received:', token);
 	const verifyData = await verifyRes.json();
-	
+	console.log('reCAPTCHA verification response:', verifyData);
+
 	if (!verifyData.success || verifyData.score < 0.5) {
 		console.error('reCAPTCHA failed:', verifyData);
 		return { message: 'reCAPTCHA verification failed. Please try again.' };

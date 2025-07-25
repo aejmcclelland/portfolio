@@ -43,16 +43,16 @@ export default async function ProjectsPage() {
 	return (
 		<section className='min-h-screen px-6 py-20 sm:px-10 bg-base-100'>
 			<div className='max-w-5xl mx-auto text-center'>
-				<h2 className='text-4xl font-bold mb-6'>Projects</h2>
+				<h2 className='text-4xl font-bold mb-6 text-primary'>Projects</h2>
 				<p className='mb-12 text-base-content/80'>
 					A few selected projects that showcase my full-stack skills in building
 					clean, scalable, and modern web applications.
 				</p>
 
-				<div className='grid gap-8 md:grid-cols-2'>
+				<div className='grid gap-8 md:grid-cols-2 auto-rows-fr'>
 					{projectList.map((project) => {
 						return (
-							<div key={project.id}>
+							<div key={project.id} className='h-full'>
 								<ProjectCard
 									images={project.images}
 									title={project.title}

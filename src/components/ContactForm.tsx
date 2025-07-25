@@ -66,7 +66,9 @@ export default function ContactForm() {
 			id='contact'
 			className='py-16 px-4 sm:px-6 md:px-8 lg:px-10 bg-base-100'>
 			<div className='max-w-3xl mx-auto'>
-				<h2 className='text-3xl font-bold mb-6 text-center'>Get in Touch</h2>
+				<h2 className='text-3xl text-primary font-bold mb-6 text-center'>
+					Get in Touch
+				</h2>
 				<ContactSuccessToast status={status} />
 				<form
 					onSubmit={handleSubmit}
@@ -74,25 +76,29 @@ export default function ContactForm() {
 					<div className='flex flex-col lg:flex-row gap-6'>
 						<div className='form-control w-full'>
 							<label className='label justify-start'>
-								<span className='label-text font-semibold'>Preferred Name</span>
+								<span className='label-text text-primary font-semibold'>
+									Preferred Name
+								</span>
 							</label>
 							<input
 								type='text'
 								name='name'
 								placeholder='Name'
-								className='input input-bordered w-full'
+								className='input input-bordered w-full text-accent'
 							/>
 						</div>
 
 						<div className='form-control w-full'>
 							<label className='label justify-start'>
-								<span className='label-text font-semibold'>Your Email</span>
+								<span className='label-text font-semibold text-primary'>
+									Your Email
+								</span>
 							</label>
 							<input
 								type='email'
 								name='email'
 								placeholder='you@example.com'
-								className='input input-bordered w-full'
+								className='input input-bordered w-full text-accent'
 								required
 							/>
 						</div>
@@ -100,7 +106,7 @@ export default function ContactForm() {
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold'>
+							<span className='label-text font-semibold text-primary'>
 								Your Phone (optional)
 							</span>
 						</label>
@@ -108,13 +114,13 @@ export default function ContactForm() {
 							type='tel'
 							name='phone'
 							placeholder='+44 1234 00123'
-							className='input input-bordered w-full'
+							className='input input-bordered w-full text-accent'
 						/>
 					</div>
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold'>
+							<span className='label-text font-semibold text-primary'>
 								LinkedIn Profile (optional)
 							</span>
 						</label>
@@ -122,17 +128,19 @@ export default function ContactForm() {
 							type='url'
 							name='linkedin'
 							placeholder='https://linkedin.com/in/yourname'
-							className='input input-bordered w-full'
+							className='input input-bordered w-full text-accent'
 						/>
 					</div>
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold'>Your Message</span>
+							<span className='label-text font-semibold text-primary'>
+								Your Message
+							</span>
 						</label>
 						<textarea
 							name='message'
-							className='textarea textarea-bordered w-full h-32'
+							className='textarea text-accent textarea-bordered w-full h-32'
 							placeholder='What would you like to say?'></textarea>
 					</div>
 

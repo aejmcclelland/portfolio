@@ -27,9 +27,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
 	slug,
 }) => {
 	return (
-		<div className='card max-w-xl mx-auto bg-base-200 shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8'>
+		<div className='card max-w-xl mx-auto bg-base-100 text-base-content shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8 h-full flex flex-col'>
 			{images && images.length > 0 && (
-				<div className='mb-4'>
+				<div className='mb-4 flex-shrink-0'>
 					{images.length > 1 ? (
 						<ProjectCarousel images={images} />
 					) : (
@@ -47,22 +47,24 @@ const ProjectCard: FC<ProjectCardProps> = ({
 				href={`/projects/${slug}`}
 				className='no-underline'
 				aria-label={`View project: ${title}`}>
-				<h3 className='text-2xl md:text-3xl font-bold mb-2'>{title}</h3>
-				<p className='mb-4 text-base-content text-sm md:text-base'>
+				<h3 className='text-2xl md:text-3xl font-bold mb-2 text-primary'>
+					{title}
+				</h3>
+				<p className='mb-4 text-base-content text-sm md:text-base line-clamp-4 min-h-[4.5rem]'>
 					{description}
 				</p>
 				<div className='flex flex-wrap gap-2 mb-4'>
 					{tech.map((item, idx) => (
 						<span
 							key={`${item.name}-${idx}`}
-							className='badge badge-outline text-xs md:text-sm'>
+							className='badge badge-secondary text-xs md:text-sm'>
 							{item.name}
 						</span>
 					))}
 				</div>
 			</Link>
 			{(githubLink || liveLink) && (
-				<div className='flex justify-center items-center gap-6 mt-6'>
+				<div className='mt-auto flex justify-center gap-4 pt-4 min-h-[3rem]'>
 					{githubLink && (
 						<a
 							href={githubLink}
@@ -71,10 +73,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 							aria-label='GitHub'
 							onClick={(e) => e.stopPropagation()}>
 							<WobbleIcon>
-								<FaGithub
-									className='w-8 h-8 text-base-content hover:text-secondary
- transition-colors duration-300'
-								/>
+								<FaGithub className='w-8 h-8 text-base-content hover:text-secondary transition-colors duration-300' />
 							</WobbleIcon>
 						</a>
 					)}

@@ -114,10 +114,10 @@ export default async function ProjectDetail({
 					</WobbleIcon>
 				</nav>
 
-				<div className='mt-4 mb-8 text-center'>
+				<div className='mt-6 mb-1 flex justify-center'>
 					<WobbleLink
 						href='/projects'
-						className='text-sm rounded-lg bg-primary px-4 py-2 text-secondary-content hover:underline'
+						className='btn btn-primary text-white text-base px-4 py-2 '
 						ariaLabel='Back to Projects'>
 						← Back to Projects
 					</WobbleLink>

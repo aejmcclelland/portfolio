@@ -22,7 +22,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang='en' className={`${grotesk.variable}`}>
+		<html data-theme='nord' lang='en' className={`${grotesk.variable}`}>
 			<head>
 				<meta
 					name='format-detection'

@@ -1,16 +1,48 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "nord";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #f3f4f6;
+  --color-base-200: #e5e7eb;
+  --color-base-300: #d1d5db;
+  --color-base-content: #1f2937;
+
+  --color-primary: #4c566a;
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #88c0d0;
+  --color-secondary-content: #1e293b;
+
+  --color-accent: #81a1c1;
+  --color-accent-content: #1e293b;
+
+  --color-neutral: #2e3440;
+  --color-neutral-content: #eceff4;
+
+  --color-info: #5e81ac;
+  --color-success: #a3be8c;
+  --color-warning: #ebcb8b;
+  --color-error: #bf616a;
+
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {

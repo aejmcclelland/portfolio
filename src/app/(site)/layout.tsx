@@ -22,7 +22,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang='en' className={`${grotesk.variable}`} suppressHydrationWarning>
+		<html
+			lang='en'
+			data-theme='nord'
+			className={`${grotesk.variable}`}
+			suppressHydrationWarning>
 			<head>
 				<meta
 					name='format-detection'
@@ -37,7 +41,6 @@ export default function RootLayout({
 				<Nav />
 				<main className='flex-grow'>{children}</main>
 				<Footer />
-				{/* Toast Notifications */}
 				<ToastProvider />
 			</body>
 		</html>

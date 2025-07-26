@@ -58,7 +58,9 @@ export default function Navbar() {
 				</div>
 
 				{/* Mobile Toggle */}
-				<div className='lg:hidden'>
+				<div className='flex lg:hidden items-center gap-2'>
+					<LightDarkToggle />
+
 					<button
 						className='btn btn-ghost'
 						onClick={() => setIsOpen(!isOpen)}
@@ -126,9 +128,6 @@ export default function Navbar() {
 								className='text-lg text-primary hover:text-primary transition-colors duration-200'>
 								Contact
 							</Link>
-						</li>
-						<li>
-							<LightDarkToggle />
 						</li>
 					</ul>
 				</div>

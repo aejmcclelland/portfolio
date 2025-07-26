@@ -7,7 +7,7 @@ import Image from 'next/image';
 import ProjectCarousel from '@/components/ProjectCarousel';
 import WobbleLink from '@/components/WobbleLink';
 import WobbleIcon from '@/components/WobbleIcon';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLaptopCode } from 'react-icons/fa';
 
 type Project = Config['collections']['projects'];
 
@@ -95,7 +95,7 @@ export default async function ProjectDetail({
 				<nav className='flex gap-12'>
 					<WobbleIcon>
 						<a
-							href='https://github.com/aejmcclelland'
+							href={project.githubLink || '#'}
 							target='_blank'
 							rel='noopener noreferrer'
 							aria-label='GitHub'>
@@ -103,15 +103,17 @@ export default async function ProjectDetail({
 						</a>
 					</WobbleIcon>
 
-					<WobbleIcon>
-						<a
-							href='https://linkedin.com/in/aejmcclelland'
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='LinkedIn'>
-							<FaLinkedin className='w-9 h-9 text-neutral-content hover:text-primary' />
-						</a>
-					</WobbleIcon>
+					{project.liveLink && (
+						<WobbleIcon>
+							<a
+								href={project.liveLink}
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='Live Site'>
+								<FaLaptopCode className='w-9 h-9 text-neutral-content hover:text-primary' />
+							</a>
+						</WobbleIcon>
+					)}
 				</nav>
 
 				<div className='mt-6 mb-1 flex justify-center'>

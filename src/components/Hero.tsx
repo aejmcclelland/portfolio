@@ -15,6 +15,7 @@ export default function Hero() {
 				MongoDB, and Tailwind CSS. Passionate about learning and turning ideas
 				into reality.
 			</p>
+
 			<div className='mt-6'>
 				<Link href='/projects' className='btn btn-primary'>
 					View Projects

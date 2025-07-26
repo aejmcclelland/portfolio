@@ -15,7 +15,9 @@ export default function LightDarkToggle() {
 			setTheme(stored);
 			document.documentElement.setAttribute('data-theme', stored);
 		} else {
-			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			const prefersDark = window.matchMedia(
+				'(prefers-color-scheme: dark)'
+			).matches;
 			const initial = prefersDark ? 'dim' : 'nord';
 			setTheme(initial);
 			document.documentElement.setAttribute('data-theme', initial);
@@ -35,12 +37,12 @@ export default function LightDarkToggle() {
 	return (
 		<button
 			onClick={toggleTheme}
-			className='btn btn-sm btn-ghost text-success text-2xl flex items-center justify-center p-4'
+			className='btn btn-sm btn-ghost text-2xl flex items-center justify-center p-4'
 			aria-label='Toggle Light/Dark Mode'>
 			{theme === 'nord' ? (
-				<CiDark className='w-6 h-6' />
+				<CiDark className='w-6 h-6 text-neutral' />
 			) : (
-				<CiLight className='w-6 h-6' />
+				<CiLight className='w-6 h-6 text-warning' />
 			)}
 		</button>
 	);

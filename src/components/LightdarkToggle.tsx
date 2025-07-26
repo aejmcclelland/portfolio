@@ -10,14 +10,12 @@ export default function LightDarkToggle() {
 	useEffect(() => {
 		setMounted(true); // Prevent hydration mismatch
 
-		const stored = localStorage.getItem('theme');
-		if (stored === 'nord' || stored === 'dim') {
+		const stored = localStorage.getItem('theme') as 'nord' | 'dim' | null;
+		if (stored) {
 			setTheme(stored);
 			document.documentElement.setAttribute('data-theme', stored);
 		} else {
-			const prefersDark = window.matchMedia(
-				'(prefers-color-scheme: dark)'
-			).matches;
+			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 			const initial = prefersDark ? 'dim' : 'nord';
 			setTheme(initial);
 			document.documentElement.setAttribute('data-theme', initial);

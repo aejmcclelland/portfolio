@@ -62,7 +62,7 @@ export default function Navbar() {
 					<LightDarkToggle />
 
 					<button
-						className='btn btn-ghost'
+						className='btn btn-ghost btn-primary'
 						onClick={() => setIsOpen(!isOpen)}
 						aria-label='Toggle menu'
 						aria-expanded={isOpen}>
@@ -70,7 +70,7 @@ export default function Navbar() {
 							// X Icon
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
-								className='h-6 w-6 text-primary'
+								className='h-6 w-6 text-neutral hover:text-warning'
 								fill='none'
 								viewBox='0 0 24 24'
 								stroke='currentColor'>
@@ -85,7 +85,7 @@ export default function Navbar() {
 							// Hamburger Icon
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
-								className='h-6 w-6 text-primary'
+								className='h-6 w-6 text-neutral hover:text-warning'
 								fill='none'
 								viewBox='0 0 24 24'
 								stroke='currentColor'>
@@ -103,13 +103,13 @@ export default function Navbar() {
 
 			{/* Mobile Dropdown */}
 			{hasMounted && isOpen && (
-				<div className='absolute top-[64px] left-0 w-full bg-base-200 shadow-md z-40 lg:hidden'>
+				<div className='absolute top-[64px] left-0 w-full bg-primary shadow-md z-40 lg:hidden'>
 					<ul className='menu menu-vertical w-full p-4'>
 						<li>
 							<Link
 								href='/about'
 								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary hover:text-primary transition-colors duration-200'>
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								About
 							</Link>
 						</li>
@@ -117,7 +117,7 @@ export default function Navbar() {
 							<Link
 								href='/projects'
 								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary hover:text-primary transition-colors duration-200'>
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								Projects
 							</Link>
 						</li>
@@ -125,7 +125,7 @@ export default function Navbar() {
 							<Link
 								href='/contact'
 								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary hover:text-primary transition-colors duration-200'>
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								Contact
 							</Link>
 						</li>

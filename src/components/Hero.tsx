@@ -17,7 +17,7 @@ export default function Hero() {
 			</p>
 
 			<div className='mt-6'>
-				<Link href='/projects' className='btn btn-primary'>
+				<Link href='/projects' className='btn btn-primary hover:text-warning'>
 					View Projects
 				</Link>
 			</div>

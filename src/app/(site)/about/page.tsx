@@ -3,9 +3,7 @@ import Image from 'next/image';
 
 export default function About() {
 	return (
-		<section
-			id='about'
-			className='min-h-screen py-16 px-6 sm:px-20 bg-base-100'>
+		<section id='about' className='py-12 px-6 sm:px-20 bg-base-100'>
 			<div className='max-w-3xl mx-auto flex flex-col items-center text-center'>
 				{/* Avatar */}
 				<Image
@@ -17,7 +15,7 @@ export default function About() {
 				/>
 
 				{/* Heading */}
-				<h2 className='text-3xl font-bold mb-6'>About Me</h2>
+				<h2 className='text-3xl text-primary font-bold mb-6'>About Me</h2>
 
 				{/* Contained Text Card */}
 				<div className='bg-secondary text-secondary-content rounded-xl shadow-lg p-6 w-full max-w-2xl'>

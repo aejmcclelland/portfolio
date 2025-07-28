@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
 	return (
-		<div className='min-h-screen p-8 sm:p-20 bg-base-200 text-base-content'>
+		<div className=' p-8 sm:p-20 bg-base-200 text-base-content'>
 			<Hero />
 			{/* Hero, About, Projects, Contact sections will go here */}
 		</div>

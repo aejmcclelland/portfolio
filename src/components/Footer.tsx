@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
 	return (
-		<footer className='footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 mt-auto'>
+		<footer className='footer sm:footer-horizontal bg-primary text-neutral-content items-center p-4 mt-auto'>
 			<div className='w-full flex justify-between items-center flex-wrap sm:flex-nowrap'>
 				<aside className='grid-flow-col items-center'>
 					<span className='text-lg font-bold tracking-wide -rotate-45 inline-block'>
@@ -20,7 +20,7 @@ export default function Footer() {
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='GitHub'>
-								<FaGithub className='w-9 h-9 text-neutral-content hover:text-primary' />
+								<FaGithub className='w-9 h-9 text-neutral-content hover:text-warning' />
 							</a>
 						</>
 					</WobbleIcon>
@@ -32,7 +32,7 @@ export default function Footer() {
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='LinkedIn'>
-								<FaLinkedin className='w-9 h-9 text-neutral-content hover:text-primary' />
+								<FaLinkedin className='w-9 h-9 text-neutral-content hover:text-warning' />
 							</a>
 						</>
 					</WobbleIcon>

@@ -83,7 +83,7 @@ export default async function ProjectDetail({
 			<div className='mb-6 rounded-lg bg-primary/10 p-4 text-base-content'>
 				{project.description}
 			</div>
-			<h2 className='inline-block text-2xl font-semibold mb-4 p-3 text-secondary-content'>
+			<h2 className='inline-block text-2xl font-semibold mb-4 p-3 text-primary'>
 				Key Features
 			</h2>
 			<ul className='list-disc pl-6 space-y-1 rounded-lg bg-primary/10 p-4 text-base-content'>

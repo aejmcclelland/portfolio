@@ -13,13 +13,13 @@ export default function Navbar() {
 	}, []);
 
 	return (
-		<nav className='site-navbar bg-base-300 sticky top-0 z-50 w-full'>
+		<nav className='site-navbar bg-primary sticky top-0 z-50 w-full'>
 			<div className='navbar max-w-7xl mx-auto px-4'>
 				{/* Site Name */}
 				<div className='flex-1'>
 					<Link
 						href='/'
-						className='btn btn-ghost text-primary text-xl font-grotesk'>
+						className='btn btn-ghost btn-primary text-primary-content text-xl hover:text-warning font-grotesk'>
 						Andrew McClelland
 					</Link>
 				</div>
@@ -31,7 +31,7 @@ export default function Navbar() {
 							<Link
 								href='/about'
 								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary hover:text-primary transition-colors duration-200'>
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								About
 							</Link>
 						</li>
@@ -39,7 +39,7 @@ export default function Navbar() {
 							<Link
 								href='/projects'
 								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary hover:text-primary transition-colors duration-200'>
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								Projects
 							</Link>
 						</li>
@@ -47,7 +47,7 @@ export default function Navbar() {
 							<Link
 								href='/contact'
 								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary hover:text-primary transition-colors duration-200'>
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								Contact
 							</Link>
 						</li>

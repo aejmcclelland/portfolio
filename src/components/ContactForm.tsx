@@ -17,7 +17,9 @@ declare global {
 }
 
 export default function ContactForm() {
+	const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!;
 	const router = useRouter();
+	const [isSending, setIsSending] = useState(false);
 	const [status, setStatus] = useState<'success' | 'error' | ''>('');
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -25,8 +27,10 @@ export default function ContactForm() {
 		const form = event.currentTarget;
 		const formData = new FormData(form);
 
+		setIsSending(true);
+
 		try {
-			if (!window.grecaptcha || !process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY) {
+			if (!window.grecaptcha || !RECAPTCHA_SITE_KEY) {
 				console.error('reCAPTCHA not loaded');
 				setStatus('error');
 				return;
@@ -34,10 +38,9 @@ export default function ContactForm() {
 
 			window.grecaptcha.ready(async () => {
 				try {
-					const token = await window.grecaptcha!.execute(
-						process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-						{ action: 'submit' }
-					);
+					const token = await window.grecaptcha!.execute(RECAPTCHA_SITE_KEY!, {
+						action: 'submit',
+					});
 
 					formData.append('recaptcha', token);
 
@@ -58,6 +61,7 @@ export default function ContactForm() {
 		} catch (error) {
 			console.error('Form submission error:', error);
 			setStatus('error');
+			setIsSending(false);
 		}
 	};
 
@@ -145,8 +149,11 @@ export default function ContactForm() {
 					</div>
 
 					<div className='form-control w-full'>
-						<button type='submit' className='btn btn-primary w-full sm:w-fit'>
-							Send Message
+						<button
+							type='submit'
+							className='btn btn-primary w-full sm:w-fit'
+							disabled={isSending}>
+							{isSending ? 'Sending...' : 'Send Message'}
 						</button>
 					</div>
 				</form>

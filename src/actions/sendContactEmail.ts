@@ -1,8 +1,20 @@
 'use server';
 
-import sgMail from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+const transporter = nodemailer.createTransport({
+	host: 'smtp.maileroo.com',
+	port: 587,
+	secure: false,
+	auth: {
+		user: process.env.MAILEROO_USER,
+		pass: process.env.MAILEROO_PASS,
+	},
+});
+
+function sanitiseInput(str: string): string {
+	return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
 
 export async function sendContactEmail(
 	_prevState: { message: string },
@@ -18,22 +30,26 @@ export async function sendContactEmail(
 		return { message: 'Missing required fields' };
 	}
 
-	const msg = {
-		to: 'aejmcclelland@gmail.com', // your actual inbox
-		from: 'contact@amcclelland.net', // must match authenticated domain in SendGrid
+	const mailOptions = {
+		from: 'contact@amcclelland.net',
+		to: 'aejmcclelland@gmail.com',
 		subject: `New Portfolio Contact from ${name || 'Anonymous'}`,
 		text: message,
 		html: `
       <div style="font-family: sans-serif; line-height: 1.6;">
-        <p><strong>From:</strong> ${name || 'Anonymous'} &lt;${email}&gt;</p>
-        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+        <p><strong>From:</strong> ${
+					sanitiseInput(name) || 'Anonymous'
+				} &lt;${sanitiseInput(email)}&gt;</p>
+        <p><strong>Phone:</strong> ${sanitiseInput(phone) || 'N/A'}</p>
         <p><strong>LinkedIn:</strong> ${
-					linkedin
-						? `<a href="${linkedin}" target="_blank">${linkedin}</a>`
+					sanitiseInput(linkedin)
+						? `<a href="${sanitiseInput(
+								linkedin
+						  )}" target="_blank">${sanitiseInput(linkedin)}</a>`
 						: 'N/A'
 				}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${sanitiseInput(message).replace(/\n/g, '<br>')}</p>
       </div>
     `,
 		replyTo: email,
@@ -61,26 +77,15 @@ export async function sendContactEmail(
 	}
 
 	try {
-		const [response] = await sgMail.send(msg);
-		console.log('✅ SendGrid response:', response?.statusCode);
+		const info = await transporter.sendMail(mailOptions);
+		console.log('Maileroo SMTP response:', info.messageId);
 		return { message: 'Message sent successfully!' };
-	} catch (error: unknown) {
-		console.error('SendGrid error:');
-
-		const err = error as Error & {
-			response?: {
-				body?: Record<string, unknown>;
-				statusCode?: number;
-			};
-		};
-
-		if (err.response) {
-			console.error('Response body:', err.response.body);
-			console.error('Status code:', err.response.statusCode);
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error('Mailer error:', error.message);
 		} else {
-			console.error('Error message:', err.message || err);
+			console.error('Mailer error:', error);
 		}
-
 		return { message: 'Failed to send message.' };
 	}
 }

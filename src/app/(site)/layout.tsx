@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Nav from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import '@/styles/globals.css';
 import { Space_Grotesk } from 'next/font/google';
 import ToastProvider from '@/components/ToastProvider';
 import Script from 'next/script';
+import '@/styles/globals.css';
 
 const grotesk = Space_Grotesk({
 	subsets: ['latin'],
@@ -22,10 +22,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html
-			lang='en'
-			className={`${grotesk.variable}`}
-			suppressHydrationWarning>
+		<html lang='en' className={`${grotesk.variable}`} suppressHydrationWarning>
 			<head>
 				<meta
 					name='format-detection'

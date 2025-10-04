@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+declare module '*.css';
 import '@/styles/globals.css';
 import Hero from '@/components/Hero';
 

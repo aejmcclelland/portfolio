@@ -17,19 +17,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@payload-config": [
-        "src/payload.config.ts"
-      ],
       "@/*": [
         "./src/*"
+      ],
+      "@payload-config": [
+        "./src/payload.config.ts",
       ]
     }
   },
@@ -37,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
-    ".next/types/**/*.ts",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

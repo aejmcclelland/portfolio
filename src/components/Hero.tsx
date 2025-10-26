@@ -8,7 +8,7 @@ export default function Hero() {
 				Andrew McClelland
 			</h1>
 			<h2 className='text-xl sm:text-2xl text-base-content mt-2'>
-				Full&#8209;Stack Developer | Front&#8209;End & Back&#8209;End Enthusiast
+				Full&#8209;Stack Developer 
 			</h2>
 			<p className='max-w-xl text-base-content mt-4 text-sm sm:text-base'>
 				I build reliable and efficient web applications using modern tools like

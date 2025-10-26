@@ -8,12 +8,12 @@ export default function Hero() {
 				Andrew McClelland
 			</h1>
 			<h2 className='text-xl sm:text-2xl text-base-content mt-2'>
-				Full-Stack Developer & Tech Enthusiast
+				Full&#8209;Stack Developer | Front&#8209;End & Back&#8209;End Enthusiast
 			</h2>
 			<p className='max-w-xl text-base-content mt-4 text-sm sm:text-base'>
-				I build clean and scalable web apps using modern tools like Next.js,
-				MongoDB, and Tailwind CSS. Passionate about learning and turning ideas
-				into reality.
+				I build reliable and efficient web applications using modern tools like
+				Next.js, MongoDB, and Tailwind CSS. Passionate about backend development
+				and eager to grow my skills in a junior or graduate role.
 			</p>
 
 			<div className='mt-6'>

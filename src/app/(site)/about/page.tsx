@@ -20,10 +20,10 @@ export default function About() {
 				{/* Contained Text Card */}
 				<div className='bg-secondary text-secondary-content rounded-xl shadow-lg p-6 w-full max-w-2xl'>
 					<p className='text-lg'>
-						I'm a driven full-stack developer passionate about building reliable and efficient web applications. I have a strong enthusiasm for backend development, crafting robust APIs and scalable systems. I enjoy working across the stack — from designing clean, responsive UIs with <strong>Next.js</strong> and Tailwind CSS, to developing backend solutions using <strong>Node.js</strong>, <strong>Express</strong>, and <strong>MongoDB</strong>.
+						I&#39;m a driven full-stack developer passionate about building reliable and efficient web applications. I have a strong enthusiasm for backend development, crafting robust APIs and scalable systems. I enjoy working across the stack &mdash; from designing clean, responsive UIs with <strong>Next.js</strong> and Tailwind CSS, to developing backend solutions using <strong>Node.js</strong>, <strong>Express</strong>, and <strong>MongoDB</strong>.
 					</p>
 					<p className='mt-4 text-base'>
-						I'm continually growing my skills in modern development practices, cloud deployment, and data handling. With a solid foundation in software design and real-world project experience, I'm ready to contribute as a junior or graduate developer — whether front-end, back-end, or full-stack.
+						I&#39;m continually growing my skills in modern development practices, cloud deployment, and data handling. With a solid foundation in software design and real-world project experience, I&#39;m ready to contribute as a junior or graduate developer &mdash; whether front-end, back-end, or full-stack.
 					</p>
 				</div>
 			</div>

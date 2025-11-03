@@ -20,10 +20,12 @@ export default function About() {
 				{/* Contained Text Card */}
 				<div className='bg-secondary text-secondary-content rounded-xl shadow-lg p-6 w-full max-w-2xl'>
 					<p className='text-lg'>
-						I&#39;m a driven full-stack developer passionate about building reliable and efficient web applications. I have a strong enthusiasm for backend development, crafting robust APIs and scalable systems. I enjoy working across the stack &mdash; from designing clean, responsive UIs with <strong>Next.js</strong> and Tailwind CSS, to developing backend solutions using <strong>Node.js</strong>, <strong>Express</strong>, and <strong>MongoDB</strong>.
-					</p>
-					<p className='mt-4 text-base'>
-						I&#39;m continually growing my skills in modern development practices, cloud deployment, and data handling. With a solid foundation in software design and real-world project experience, I&#39;m ready to contribute as a junior or graduate developer &mdash; whether front-end, back-end, or full-stack.
+						I’m Andrew — a Software Development graduate from Queen’s University
+						Belfast with a focus on building reliable full-stack web
+						applications. I particularly enjoy backend development — there’s
+						something oddly satisfying about getting a perfect{' '}
+						<code>200 OK</code>. This portfolio reflects my journey so far and
+						the projects that have helped me grow as a developer.
 					</p>
 				</div>
 			</div>

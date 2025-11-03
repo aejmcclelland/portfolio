@@ -25,13 +25,13 @@ export default function Hero() {
 			</p>
 
 			<div className='mt-6 flex justify-center gap-4'>
-				<a href='/projects' aria-label='Projects'>
+				<Link href='/projects' aria-label='Projects'>
 					<WobbleIcon>
 						<FaFolderOpen className='w-10 h-10 text-base-content hover:text-warning transition-colors duration-300' />
 					</WobbleIcon>
-				</a>
+				</Link>
 
-				<a
+				<Link
 					href='https://github.com/aejmcclelland'
 					target='_blank'
 					rel='noopener noreferrer'
@@ -39,9 +39,9 @@ export default function Hero() {
 					<WobbleIcon>
 						<FaGithub className='w-10 h-10 text-base-content hover:text-secondary transition-colors duration-300' />
 					</WobbleIcon>
-				</a>
+				</Link>
 
-				<a
+				<Link
 					href='https://www.linkedin.com/in/aejmcclelland/'
 					target='_blank'
 					rel='noopener noreferrer'
@@ -49,7 +49,7 @@ export default function Hero() {
 					<WobbleIcon>
 						<FaLinkedin className='w-10 h-10 text-base-content hover:text-primary transition-colors duration-300' />
 					</WobbleIcon>
-				</a>
+				</Link>
 			</div>
 		</section>
 	);

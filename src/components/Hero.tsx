@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+import { FaGithub, FaLinkedin, FaFolderOpen } from 'react-icons/fa';
+import WobbleIcon from './WobbleIcon';
 
 export default function Hero() {
 	return (
@@ -10,25 +12,44 @@ export default function Hero() {
 			<h2 className='text-xl sm:text-2xl text-base-content mt-2'>
 				Full&#8209;Stack Developer
 			</h2>
-			<p className='max-w-xl text-base-content mt-4 text-sm sm:text-base'>
-				I build full‑stack web apps with <strong>Next.js</strong> on the front and <strong>Node.js</strong>/<strong>Express</strong> on the back, with <strong>MongoDB</strong> for data and <strong>Tailwind CSS</strong> for styling. Want to see more? Browse my code on GitHub or get in touch to connect on LinkedIn.
+			<p className='max-w-xl text-justify text-base-content mt-4 text-sm sm:text-base'>
+				I build full‑stack web apps with <strong>Next.js</strong> and{' '}
+				<strong>MongoDB</strong>. I also enjoy developing standalone backends
+				with <strong>Node.js</strong>/<strong>Express</strong>, sometimes
+				coupling them with <strong>React</strong> (Vite) and{' '}
+				<strong>MongoDB</strong>. I work with <strong>Tailwind CSS</strong> for
+				styling, and occasionally explore
+				<strong> Java</strong> with <strong>Spring Boot</strong> to strengthen
+				my backend skills. Want to see more? Browse my code on GitHub or connect
+				with me on LinkedIn.
 			</p>
 
-			<div className='mt-6 flex flex-wrap justify-center gap-3'>
-				<Link href='/projects' className='btn btn-primary hover:text-warning'>
-					View Projects
-				</Link>
-				<Link
+			<div className='mt-6 flex justify-center gap-4'>
+				<a href='/projects' aria-label='Projects'>
+					<WobbleIcon>
+						<FaFolderOpen className='w-10 h-10 text-base-content hover:text-warning transition-colors duration-300' />
+					</WobbleIcon>
+				</a>
+
+				<a
 					href='https://github.com/aejmcclelland'
 					target='_blank'
 					rel='noopener noreferrer'
-					className='btn btn-outline'
-				>
-					GitHub
-				</Link>
-				<Link href='/contact' className='btn btn-ghost'>
-					Connect on LinkedIn
-				</Link>
+					aria-label='GitHub'>
+					<WobbleIcon>
+						<FaGithub className='w-10 h-10 text-base-content hover:text-secondary transition-colors duration-300' />
+					</WobbleIcon>
+				</a>
+
+				<a
+					href='https://www.linkedin.com/in/aejmcclelland/'
+					target='_blank'
+					rel='noopener noreferrer'
+					aria-label='LinkedIn'>
+					<WobbleIcon>
+						<FaLinkedin className='w-10 h-10 text-base-content hover:text-primary transition-colors duration-300' />
+					</WobbleIcon>
+				</a>
 			</div>
 		</section>
 	);

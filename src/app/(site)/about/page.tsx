@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function About() {
 	return (
-		<section id='about' className='py-12 px-6 sm:px-20 bg-base-100'>
+		<section id='about' className='py-12 px-6 sm:px-20'>
 			<div className='max-w-3xl mx-auto flex flex-col items-center text-justify'>
 				{/* Avatar */}
 				<Image
@@ -18,14 +18,25 @@ export default function About() {
 				<h2 className='text-3xl text-primary font-bold mb-6'>About Me</h2>
 
 				{/* Contained Text Card */}
-				<div className=' text-sprimary rounded-xl shadow-lg p-6 w-full max-w-2xl'>
-					<p className='text-lg'>
-						I’m Andrew — a Software Development graduate from Queen’s University
-						Belfast with a focus on building reliable full-stack web
-						applications. I particularly enjoy backend development — there’s
-						something oddly satisfying about getting a perfect{' '}
-						<code>200 OK</code>. This portfolio reflects my journey so far and
-						the projects that have helped me grow as a developer.
+				<div className='bg-base-300 text-base-content rounded-xl shadow-lg p-6 w-full max-w-2xl'>
+					<p className='text-lg leading-relaxed'>
+						I&apos;m Andrew, a full-stack web developer with a background in
+						Software Development from Queen&apos;s University Belfast. I focus
+						on building reliable, maintainable web applications with modern
+						tools like Next.js, Node, Supabase, and MongoDB.
+					</p>
+
+					<p className='text-lg leading-relaxed mt-4'>
+						I enjoy the backend just as much as the UI — wiring up clean APIs,
+						data models, and authentication, then putting a fast, responsive
+						interface on top. Recent work includes a production-ready recipe
+						platform, a task management app.
+					</p>
+
+					<p className='text-lg leading-relaxed mt-4'>
+						I&apos;m currently open to both full-time roles and freelance work —
+						whether that&apos;s helping a team ship features faster, or building
+						a focused web app or small business site from scratch.
 					</p>
 				</div>
 			</div>

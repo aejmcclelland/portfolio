@@ -46,7 +46,7 @@ export default async function ProjectDetail({
 	if (!project) return notFound();
 
 	return (
-		<div className='min-h-screen max-w-4xl mx-auto px-4 py-16 bg-base-100'>
+		<div className='min-h-screen max-w-4xl mx-auto px-4 py-16'>
 			<div className='flex justify-center p-1 mb-2'>
 				<h1 className='inline-block text-3xl mb-6 justify-center p-3 text-secondary-content'>
 					{project.title}

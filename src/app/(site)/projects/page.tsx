@@ -40,7 +40,7 @@ export default async function ProjectsPage() {
 	}));
 
 	return (
-		<section className='min-h-screen px-6 py-20 sm:px-10 bg-base-100'>
+		<section className='min-h-screen px-6 py-20 sm:px-10'>
 			<div className='max-w-5xl mx-auto text-center'>
 				<h2 className='text-4xl font-bold mb-6 text-primary'>Projects</h2>
 				<p className='mb-12 text-base-content/80'>

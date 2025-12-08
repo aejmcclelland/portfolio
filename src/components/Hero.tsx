@@ -5,7 +5,7 @@ import WobbleIcon from './WobbleIcon';
 
 export default function Hero() {
 	return (
-		<section className='min-h-[80vh] flex flex-col justify-center items-center text-center px-6'>
+		<section className='min-h-[40vh] flex flex-col justify-center items-center bg-base-100 text-center px-12 py-20 rounded-lg shadow-md'>
 			<h1 className='text-4xl sm:text-5xl font-bold text-primary'>
 				Andrew McClelland
 			</h1>

@@ -33,9 +33,9 @@ export default function RootLayout({
 					strategy='afterInteractive'
 				/>
 			</head>
-			<body className='font-grotesk flex flex-col min-h-screen'>
+			<body className='font-grotesk flex flex-col bg-base-200 min-h-screen'>
 				<Nav />
-				<main className='flex-grow'>{children}</main>
+				<main className='grow'>{children}</main>
 				<Footer />
 				<ToastProvider />
 			</body>

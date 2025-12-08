@@ -4,19 +4,19 @@ import { useEffect, useState } from 'react';
 import { CiLight, CiDark } from 'react-icons/ci';
 
 export default function LightDarkToggle() {
-	const [theme, setTheme] = useState<'corporate' | 'dim' | null>(null);
+	const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
 
 	useEffect(() => {
-		const stored = localStorage.getItem('theme') as 'corporate' | 'dim' | null;
+		const stored = localStorage.getItem('theme') as 'light' | 'dark' | null;
 
-		if (stored === 'corporate' || stored === 'dim') {
+		if (stored === 'light' || stored === 'dark') {
 			setTheme(stored);
 			document.documentElement.setAttribute('data-theme', stored);
 		} else {
 			const prefersDark = window.matchMedia(
 				'(prefers-color-scheme: dark)'
 			).matches;
-			const initialTheme = prefersDark ? 'dim' : 'corporate';
+			const initialTheme = prefersDark ? 'dark' : 'light';
 			setTheme(initialTheme);
 			document.documentElement.setAttribute('data-theme', initialTheme);
 			localStorage.setItem('theme', initialTheme);
@@ -25,7 +25,7 @@ export default function LightDarkToggle() {
 
 	const toggleTheme = () => {
 		if (!theme) return;
-		const newTheme = theme === 'corporate' ? 'dim' : 'corporate';
+		const newTheme = theme === 'light' ? 'dark' : 'light';
 		setTheme(newTheme);
 		document.documentElement.setAttribute('data-theme', newTheme);
 		localStorage.setItem('theme', newTheme);
@@ -38,7 +38,7 @@ export default function LightDarkToggle() {
 			onClick={toggleTheme}
 			className='group btn btn-sm btn-ghost btn-primary text-2xl flex items-center justify-center p-4'
 			aria-label='Toggle Light/Dark Mode'>
-			{theme === 'corporate' ? (
+			{theme === 'light' ? (
 				<CiDark className='w-6 h-6 text-neutral group-hover:text-warning' />
 			) : (
 				<CiLight className='w-6 h-6 text-neutral group-hover:text-secondary' />

@@ -66,9 +66,7 @@ export default function ContactForm() {
 	};
 
 	return (
-		<section
-			id='contact'
-			className='py-16 px-4 sm:px-6 md:px-8 lg:px-10 bg-base-100'>
+		<section id='contact' className='py-16 px-4 sm:px-6 md:px-8 lg:px-10'>
 			<div className='max-w-3xl mx-auto'>
 				<h2 className='text-3xl text-primary font-bold mb-6 text-center'>
 					Get in Touch
@@ -76,7 +74,7 @@ export default function ContactForm() {
 				<ContactSuccessToast status={status} />
 				<form
 					onSubmit={handleSubmit}
-					className='bg-base-200 shadow-md p-6 rounded-xl space-y-6'>
+					className='bg-warning shadow-md p-6 rounded-xl space-y-6'>
 					<div className='flex flex-col lg:flex-row gap-6'>
 						<div className='form-control w-full'>
 							<label className='label justify-start'>
@@ -88,7 +86,7 @@ export default function ContactForm() {
 								type='text'
 								name='name'
 								placeholder='Name'
-								className='input input-bordered w-full text-accent'
+								className='input input-bordered w-full text-error'
 							/>
 						</div>
 
@@ -102,7 +100,7 @@ export default function ContactForm() {
 								type='email'
 								name='email'
 								placeholder='you@example.com'
-								className='input input-bordered w-full text-accent'
+								className='input input-bordered w-full text-error'
 								required
 							/>
 						</div>
@@ -118,7 +116,7 @@ export default function ContactForm() {
 							type='tel'
 							name='phone'
 							placeholder='+44 1234 00123'
-							className='input input-bordered w-full text-accent'
+							className='input input-bordered w-full text-error'
 						/>
 					</div>
 
@@ -132,7 +130,7 @@ export default function ContactForm() {
 							type='url'
 							name='linkedin'
 							placeholder='https://linkedin.com/in/yourname'
-							className='input input-bordered w-full text-accent'
+							className='input input-bordered w-full text-error'
 						/>
 					</div>
 
@@ -144,7 +142,7 @@ export default function ContactForm() {
 						</label>
 						<textarea
 							name='message'
-							className='textarea text-accent textarea-bordered w-full h-32'
+							className='textarea text-error textarea-bordered w-full h-32'
 							placeholder='What would you like to say?'></textarea>
 					</div>
 

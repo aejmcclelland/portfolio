@@ -92,6 +92,16 @@ export const Projects: CollectionConfig = {
 				description: 'Paste the Cloudinary URL for the post cover image',
 			},
 		},
+		{
+			name: 'projectType',
+			type: 'select',
+			required: false,
+			options: [
+				{ label: 'Application', value: 'application' },
+				{ label: 'Small Business Website', value: 'small-business-site' },
+			],
+			defaultValue: 'application',
+		},
 	],
 };
 

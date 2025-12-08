@@ -94,13 +94,14 @@ export const Projects: CollectionConfig = {
 		},
 		{
 			name: 'projectType',
+			label: 'Project Type',
 			type: 'select',
 			required: false,
+			defaultValue: 'application',
 			options: [
 				{ label: 'Application', value: 'application' },
 				{ label: 'Small Business Website', value: 'small-business-site' },
 			],
-			defaultValue: 'application',
 		},
 	],
 };

@@ -6,9 +6,9 @@ import WobbleIcon from './WobbleIcon';
 export default function Hero() {
 	return (
 		<section className='min-h-[40vh] flex flex-col justify-center items-center bg-base-100 text-center px-12 py-20 rounded-lg shadow-md'>
-			<h1 className='text-4xl sm:text-5xl font-bold text-primary'>
+			{/* <h1 className='text-4xl sm:text-5xl font-bold text-primary'>
 				Andrew McClelland
-			</h1>
+			</h1> */}
 			<h2 className='text-xl sm:text-2xl text-base-content mt-2'>
 				Web Developer & Software Engineer
 			</h2>

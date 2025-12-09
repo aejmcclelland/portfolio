@@ -29,14 +29,6 @@ export default function Navbar() {
 					<ul className='menu menu-horizontal px-1'>
 						<li>
 							<Link
-								href='/about'
-								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
-								About
-							</Link>
-						</li>
-						<li>
-							<Link
 								href='/projects'
 								onClick={() => setIsOpen(false)}
 								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
@@ -105,14 +97,6 @@ export default function Navbar() {
 			{hasMounted && isOpen && (
 				<div className='absolute top-16 left-0 w-full bg-primary shadow-md z-40 lg:hidden'>
 					<ul className='menu menu-vertical w-full p-4'>
-						<li>
-							<Link
-								href='/about'
-								onClick={() => setIsOpen(false)}
-								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
-								About
-							</Link>
-						</li>
 						<li>
 							<Link
 								href='/projects'

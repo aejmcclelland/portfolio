@@ -27,7 +27,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 	slug,
 }) => {
 	return (
-		<div className='card max-w-xl mx-auto bg-base-100 text-base-content shadow-md p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8 h-full flex flex-col'>
+		<div className='card max-w-xl mx-auto bg-base-100 text-base-content shadow-[4px_4px_10px_2px_rgba(0,0,0,0.20)] p-6 rounded-lg hover:shadow-lg transition cursor-pointer sm:p-6 md:p-8 h-full flex flex-col'>
 			{images && images.length > 0 && (
 				<div className='mb-4 shrink-0'>
 					{images.length > 1 ? (

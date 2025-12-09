@@ -74,11 +74,11 @@ export default function ContactForm() {
 				<ContactSuccessToast status={status} />
 				<form
 					onSubmit={handleSubmit}
-					className='bg-warning shadow-md p-6 rounded-xl space-y-6'>
+					className='bg-base-100 shadow-md p-6 rounded-xl space-y-6'>
 					<div className='flex flex-col lg:flex-row gap-6'>
 						<div className='form-control w-full'>
 							<label className='label justify-start'>
-								<span className='label-text text-primary font-semibold'>
+								<span className='label-text text-primary-content font-semibold'>
 									Preferred Name
 								</span>
 							</label>
@@ -92,7 +92,7 @@ export default function ContactForm() {
 
 						<div className='form-control w-full'>
 							<label className='label justify-start'>
-								<span className='label-text font-semibold text-primary'>
+								<span className='label-text font-semibold text-primary-content'>
 									Your Email
 								</span>
 							</label>
@@ -108,7 +108,7 @@ export default function ContactForm() {
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold text-primary'>
+							<span className='label-text font-semibold text-primary-content'>
 								Your Phone (optional)
 							</span>
 						</label>
@@ -122,7 +122,7 @@ export default function ContactForm() {
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold text-primary'>
+							<span className='label-text font-semibold text-primary-content'>
 								LinkedIn Profile (optional)
 							</span>
 						</label>
@@ -136,7 +136,7 @@ export default function ContactForm() {
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold text-primary'>
+							<span className='label-text font-semibold text-primary-content'>
 								Your Message
 							</span>
 						</label>

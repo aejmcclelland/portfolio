@@ -2,7 +2,7 @@
 @plugin "daisyui" {
 	themes: light --default, dark --prefersdark;
 }
-@plugin "daisyui/theme" {
+/* @plugin "daisyui/theme" {
   name: "light";
   default: false;
   prefersdark: "dark";
@@ -35,7 +35,7 @@
   --border: 1px;
   --depth: 1;
   --noise: 0;
-}
+} */
 
 
 /* toast animation */

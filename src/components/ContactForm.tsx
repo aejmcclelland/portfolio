@@ -78,7 +78,7 @@ export default function ContactForm() {
 					<div className='flex flex-col lg:flex-row gap-6'>
 						<div className='form-control w-full'>
 							<label className='label justify-start'>
-								<span className='label-text text-primary-content font-semibold'>
+								<span className='label-text text-primary font-semibold'>
 									Preferred Name
 								</span>
 							</label>
@@ -86,13 +86,13 @@ export default function ContactForm() {
 								type='text'
 								name='name'
 								placeholder='Name'
-								className='input input-bordered w-full text-error'
+								className='input input-bordered w-full text-base-content'
 							/>
 						</div>
 
 						<div className='form-control w-full'>
 							<label className='label justify-start'>
-								<span className='label-text font-semibold text-primary-content'>
+								<span className='label-text font-semibold text-primary'>
 									Your Email
 								</span>
 							</label>
@@ -100,7 +100,7 @@ export default function ContactForm() {
 								type='email'
 								name='email'
 								placeholder='you@example.com'
-								className='input input-bordered w-full text-error'
+								className='input input-bordered w-full text-base-content'
 								required
 							/>
 						</div>
@@ -108,7 +108,7 @@ export default function ContactForm() {
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold text-primary-content'>
+							<span className='label-text font-semibold text-primary'>
 								Your Phone (optional)
 							</span>
 						</label>
@@ -116,13 +116,13 @@ export default function ContactForm() {
 							type='tel'
 							name='phone'
 							placeholder='+44 1234 00123'
-							className='input input-bordered w-full text-error'
+							className='input input-bordered w-full text-base-content'
 						/>
 					</div>
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold text-primary-content'>
+							<span className='label-text font-semibold text-primary'>
 								LinkedIn Profile (optional)
 							</span>
 						</label>
@@ -130,19 +130,19 @@ export default function ContactForm() {
 							type='url'
 							name='linkedin'
 							placeholder='https://linkedin.com/in/yourname'
-							className='input input-bordered w-full text-error'
+							className='input input-bordered w-full text-base-content'
 						/>
 					</div>
 
 					<div className='form-control w-full'>
 						<label className='label justify-start'>
-							<span className='label-text font-semibold text-primary-content'>
+							<span className='label-text font-semibold text-primary'>
 								Your Message
 							</span>
 						</label>
 						<textarea
 							name='message'
-							className='textarea text-error textarea-bordered w-full h-32'
+							className='textarea text-base-content textarea-bordered w-full h-32'
 							placeholder='What would you like to say?'></textarea>
 					</div>
 
@@ -156,7 +156,7 @@ export default function ContactForm() {
 					</div>
 				</form>
 
-				<p className='text-xs text-center text-base-content/70 mt-4'>
+				<p className='text-xs text-center text-primary/70 mt-4'>
 					This site is protected by reCAPTCHA and the Google{' '}
 					<a
 						href='https://policies.google.com/privacy'

@@ -50,7 +50,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 				<h3 className='text-2xl md:text-3xl font-bold mb-2 text-primary'>
 					{title}
 				</h3>
-				<p className='mb-4 text-base-content text-sm md:text-base line-clamp-4 min-h-[4.5rem]'>
+				<p className='mb-4 text-base-content text-sm md:text-base line-clamp-4 min-h-18'>
 					{description}
 				</p>
 				<div className='flex flex-wrap gap-2 mb-4'>
@@ -64,7 +64,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 				</div>
 			</Link>
 			{(githubLink || liveLink) && (
-				<div className='mt-auto flex justify-center gap-4 pt-4 min-h-[3rem]'>
+				<div className='mt-auto flex justify-center gap-4 pt-4 min-h-12'>
 					{githubLink && (
 						<a
 							href={githubLink}

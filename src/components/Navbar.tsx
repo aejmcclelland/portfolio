@@ -62,7 +62,7 @@ export default function Navbar() {
 					<LightDarkToggle />
 
 					<button
-						className='btn btn-ghost btn-primary'
+						className='btn btn-primary'
 						onClick={() => setIsOpen(!isOpen)}
 						aria-label='Toggle menu'
 						aria-expanded={isOpen}>
@@ -103,7 +103,7 @@ export default function Navbar() {
 
 			{/* Mobile Dropdown */}
 			{hasMounted && isOpen && (
-				<div className='absolute top-[64px] left-0 w-full bg-primary shadow-md z-40 lg:hidden'>
+				<div className='absolute top-16 left-0 w-full bg-primary shadow-md z-40 lg:hidden'>
 					<ul className='menu menu-vertical w-full p-4'>
 						<li>
 							<Link

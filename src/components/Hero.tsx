@@ -7,7 +7,7 @@ import WobbleIcon from './WobbleIcon';
 export default function Hero() {
 	return (
 		<section className='relative max-w-5xl w-full mx-auto bg-base-100 px-6 sm:px-10 py-10 sm:py-14 rounded-lg shadow-[4px_4px_10px_2px_rgba(0,0,0,0.20)]'>
-			<div className='flex flex-col-reverse md:flex-row items-center gap-8'>
+			<div className='flex flex-col-reverse md:flex-row items-center md:items-start gap-8'>
 				{/* Text column */}
 				<div className='flex-1 flex flex-col'>
 					<p className='text-xs sm:text-sm font-medium tracking-wide text-base-content/70 mb-1'>

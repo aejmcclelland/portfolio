@@ -52,7 +52,7 @@ export default function Hero() {
 						alt='Andrew McClelland'
 						width={140}
 						height={140}
-						className='rounded-full shadow-md border border-base-content md:w-[160px] md:h-[160px]'
+						className='rounded-full shadow-md border border-base-content md:w-40 md:h-40'
 					/>
 				</div>
 			</div>

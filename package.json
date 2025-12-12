@@ -18,7 +18,7 @@
     "graphql": "^16.12.0",
     "mongodb": "7.0.0",
     "mongoose": "8.15.1",
-    "next": "15.4.8",
+    "next": "15.4.10",
     "nodemailer": "^7.0.11",
     "payload": "^3.67.0",
     "react": "^19.2.1",

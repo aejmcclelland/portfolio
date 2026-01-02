@@ -62,8 +62,8 @@ export default async function ProjectsPage() {
 							Applications
 						</h1>
 						<p className='text-base-content/80 max-w-2xl mx-auto'>
-							Production-ready applications I&apos;ve designed and built,
-							covering authentication, data handling, and deployment.
+							Here are a few production projects that show how I work:
+							full-stack builds, authentication, data handling, and deployed apps under custom domains.
 						</p>
 					</div>
 

@@ -18,23 +18,18 @@ export default function Hero() {
 					</h2>
 
 					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
-						I design and build fast, reliable websites and web applications that
-						do exactly what they&apos;re meant to do. My work ranges from
-						full-stack applications with secure logins and data handling to
-						clean, mobile-friendly websites for small businesses.
+						I build fast, reliable web applications — from secure logins and APIs to clean, mobile-friendly UIs. I enjoy the backend as much as the interface: designing data models, wiring up authentication, and shipping features with a strong focus on security and maintainability.
 					</p>
 
 					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
-						I enjoy the backend just as much as the UI — wiring up clean APIs,
-						data models, and authentication, then putting a fast, responsive
-						interface on top.
+						Open to full-time roles and freelance (Belfast / remote).
 					</p>
 
-					<p className='text-sm sm:text-base text-base-content leading-relaxed'>
+					{/* <p className='text-sm sm:text-base text-base-content leading-relaxed'>
 						I&apos;m currently open to both full-time roles and freelance work —
 						whether that&apos;s helping a team ship features faster or building
 						a focused web app or small business site from scratch.
-					</p>
+					</p> */}
 
 					<div className='mt-6 flex gap-4'>
 						<Link href='/projects' aria-label='View projects'>

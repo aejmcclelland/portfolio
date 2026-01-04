@@ -18,7 +18,7 @@ export default function Hero() {
 					</h2>
 
 					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
-						I build fast, reliable web applications — from secure logins and APIs to clean, mobile-friendly UIs. I enjoy the backend as much as the interface: designing data models, wiring up authentication, and shipping features with a strong focus on security and maintainability.
+						I build fast, reliable web applications — from secure logins and APIs to clean, mobile-friendly UIs. I enjoy the backend as much as the frontend: designing data models, connecting authentication, and shipping features with a strong focus on security and maintainability.
 					</p>
 
 					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>

@@ -37,6 +37,14 @@ export default function Navbar() {
 						</li>
 						<li>
 							<Link
+								href='/local-tools'
+								onClick={() => setIsOpen(false)}
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
+								Tools
+							</Link>
+						</li>
+						<li>
+							<Link
 								href='/contact'
 								onClick={() => setIsOpen(false)}
 								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
@@ -103,6 +111,14 @@ export default function Navbar() {
 								onClick={() => setIsOpen(false)}
 								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								Projects
+							</Link>
+						</li>
+						<li>
+							<Link
+								href='/local-tools'
+								onClick={() => setIsOpen(false)}
+								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
+								Tools
 							</Link>
 						</li>
 						<li>

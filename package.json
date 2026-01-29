@@ -13,6 +13,7 @@
     "@payloadcms/next": "^3.72.0",
     "@payloadcms/richtext-lexical": "^3.72.0",
     "@payloadcms/storage-vercel-blob": "^3.72.0",
+    "@payloadcms/ui": "^3.73.0",
     "@types/nodemailer": "^7.0.5",
     "@vercel/blob": "^2.0.0",
     "build": "^0.1.4",

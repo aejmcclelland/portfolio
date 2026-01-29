@@ -101,6 +101,7 @@ export const Projects: CollectionConfig = {
 			options: [
 				{ label: 'Application', value: 'application' },
 				{ label: 'Small Business Website', value: 'small-business-site' },
+				{ label: 'Local Tool', value: 'localTool' },
 			],
 		},
 	],

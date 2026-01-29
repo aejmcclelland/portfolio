@@ -88,7 +88,7 @@ export default async function ProjectsPage() {
 					</div>
 				</section>
 
-				{/* Small business websites section */}
+				{/* Small business websites section
 				<section>
 					<div className='text-center mb-10'>
 						<h2 className='text-3xl font-bold mb-4 text-primary'>
@@ -136,7 +136,7 @@ export default async function ProjectsPage() {
 							</div>
 						</div>
 					)}
-				</section>
+				</section> */}
 			</div>
 		</main>
 	);

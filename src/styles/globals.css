@@ -1,6 +1,43 @@
 @import 'tailwindcss';
 @plugin "daisyui" {
-	themes: light --default, dark --prefersdark;
+	themes:
+		light --default,
+		dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+	name: 'garage';
+	default: false;
+	prefersdark: false;
+	color-scheme: 'light';
+	--color-base-100: oklch(98% 0.002 247.839);
+	--color-base-200: oklch(96% 0.003 264.542);
+	--color-base-300: oklch(92% 0.006 264.531);
+	--color-base-content: oklch(21% 0.034 264.665);
+	--color-primary: oklch(60% 0.126 221.723);
+	--color-primary-content: oklch(98% 0.019 200.873);
+	--color-secondary: oklch(75% 0.183 55.934);
+	--color-secondary-content: oklch(97% 0.014 343.198);
+	--color-accent: oklch(59% 0.145 163.225);
+	--color-accent-content: oklch(97% 0.021 166.113);
+	--color-neutral: oklch(44% 0.03 256.802);
+	--color-neutral-content: oklch(98% 0.002 247.839);
+	--color-info: oklch(71% 0.143 215.221);
+	--color-info-content: oklch(98% 0.019 200.873);
+	--color-success: oklch(72% 0.219 149.579);
+	--color-success-content: oklch(98% 0.018 155.826);
+	--color-warning: oklch(70% 0.213 47.604);
+	--color-warning-content: oklch(98% 0.016 73.684);
+	--color-error: oklch(64% 0.246 16.439);
+	--color-error-content: oklch(96% 0.015 12.422);
+	--radius-selector: 2rem;
+	--radius-field: 0.25rem;
+	--radius-box: 2rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+	--border: 1.5px;
+	--depth: 0;
+	--noise: 1;
 }
 
 /* toast animation */
@@ -34,5 +71,3 @@
 .wobble-hover:hover {
 	animation: wobble 0.5s ease-in-out;
 }
-
-

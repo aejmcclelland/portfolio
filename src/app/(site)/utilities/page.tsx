@@ -3,7 +3,7 @@ import { getPayload } from 'payload';
 import config from '@payload-config';
 import { Project } from '@/types';
 
-// Local Tools are fetched from Payload at request time
+// Utilities are fetched from Payload at request time
 export const dynamic = 'force-dynamic';
 
 type RawProject = {
@@ -18,7 +18,7 @@ type RawProject = {
 	liveLink?: string;
 };
 
-export default async function LocalToolsPage() {
+export default async function UtilitiesPage() {
 	const payload = await getPayload({ config });
 
 	const findResult = await payload.find({
@@ -44,22 +44,21 @@ export default async function LocalToolsPage() {
 	}));
 
 	// Expect your Payload Projects collection to include an option like: "localTool"
-	const localTools = projectList.filter((p) => p.projectType === 'localTool');
+	const utilities = projectList.filter((p) => p.projectType === 'localTool');
 
 	return (
 		<main className='min-h-screen px-6 py-20 sm:px-10 bg-base-200 text-base-content'>
 			<div className='max-w-5xl mx-auto space-y-16'>
 				<section>
 					<div className='text-center mb-10'>
-						<h1 className='text-4xl font-bold mb-4 text-primary'>Local Tools</h1>
+						<h1 className='text-4xl font-bold mb-4 text-primary'>Utilities</h1>
 						<p className='text-base-content/80 max-w-2xl mx-auto'>
-							Smaller utilities and experiments I’ve built to support my main projects — scripts, automations, and local-only tools.
-							If a tool isn’t deployed, you can still run it locally from the GitHub repo.
+							A small set of reusable scripts and utilities I’ve built to support my main projects — automation, repeatable workflows, and keeping things consistent. Most are designed to run locally; each entry links to the repo with setup instructions.
 						</p>
 					</div>
 
 					<div className='grid gap-8 md:grid-cols-2 auto-rows-fr'>
-						{localTools.map((project) => (
+						{utilities.map((project) => (
 							<div key={project.id} className='h-full'>
 								<ProjectCard
 									images={project.images}

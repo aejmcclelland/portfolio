@@ -40,7 +40,7 @@ export default function Navbar() {
 								href='/local-tools'
 								onClick={() => setIsOpen(false)}
 								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
-								Tools
+								Utilities
 							</Link>
 						</li>
 						<li>
@@ -118,7 +118,7 @@ export default function Navbar() {
 								href='/local-tools'
 								onClick={() => setIsOpen(false)}
 								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
-								Tools
+								Utilities
 							</Link>
 						</li>
 						<li>

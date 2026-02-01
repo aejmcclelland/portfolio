@@ -6,7 +6,7 @@ export interface Project {
 	projectType?: string;
 	images?: { src: string; alt?: string }[];
 	imageAlt?: string;
-	tech?: { name: string}[];
+	tech?: { name: string }[];
 	githubLink?: string;
 	liveLink?: string;
 }

@@ -1,4 +1,4 @@
-import type { SampleConfig } from '../_content/types';
+import type { SampleConfig } from '../../../../types/sample';
 
 export default function TemplateShell({ sample }: { sample: SampleConfig }) {
 	return (

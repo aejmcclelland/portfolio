@@ -115,7 +115,7 @@ export default function Navbar() {
 						</li>
 						<li>
 							<Link
-								href='/local-tools'
+								href='/utilities'
 								onClick={() => setIsOpen(false)}
 								className='text-lg text-primary-content hover:text-warning transition-colors duration-200'>
 								Utilities

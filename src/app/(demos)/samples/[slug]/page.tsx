@@ -4,15 +4,16 @@ import { getSampleBySlug, SAMPLES } from '../_content';
 import TemplateShell from '../_components/TemplateShell';
 
 type PageProps = {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
 	return SAMPLES.map((s) => ({ slug: s.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-	const sample = getSampleBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+	const { slug } = await params;
+	const sample = getSampleBySlug(slug);
 	if (!sample) return { title: 'Sample not found | Andrew McClelland' };
 
 	return {
@@ -21,8 +22,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
 	};
 }
 
-export default function SamplePage({ params }: PageProps) {
-	const sample = getSampleBySlug(params.slug);
+export default async function SamplePage({ params }: PageProps) {
+	const { slug } = await params;
+	const sample = getSampleBySlug(slug);
 	if (!sample) notFound();
 
 	return <TemplateShell sample={sample} />;

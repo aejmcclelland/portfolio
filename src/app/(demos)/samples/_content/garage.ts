@@ -1,4 +1,4 @@
-// src/app/(site)/samples/_content/garage.ts
+// src/app/(demos)/samples/_content/garage.ts
 import type { SampleConfig } from '@/types/sample';
 
 export const garageSample: SampleConfig = {
@@ -30,6 +30,7 @@ export const garageSample: SampleConfig = {
 		{ src: '/samples/garage/garage-01.jpg', alt: 'Garage workshop' },
 		{ src: '/samples/garage/garage-02.jpg', alt: 'Technician working on car' },
 	],
+
 	theme: 'auto',
 
 	contact: {

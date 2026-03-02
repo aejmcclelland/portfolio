@@ -1,3 +1,5 @@
+// src/types/sample.ts
+
 export type SampleSlug = string;
 
 export type SampleLink = {

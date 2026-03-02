@@ -60,6 +60,150 @@ export default function SamplesIndexPage() {
 				</div>
 			</div>
 
+			{/* Services */}
+			<section
+				id='services'
+				className='mt-8 rounded-2xl bg-base-100 p-6 shadow'>
+				<div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
+					<div>
+						<h2 className='text-lg font-semibold'>What I can build for you</h2>
+						<p className='mt-1 max-w-2xl opacity-70'>
+							A focused set of website packages for local businesses. Clear
+							scope, fast delivery, and a professional finish.
+						</p>
+					</div>
+					<Link href='/contact' className='btn btn-outline btn-sm'>
+						Check availability
+					</Link>
+				</div>
+
+				<div className='mt-6 grid gap-4 md:grid-cols-2'>
+					<div className='rounded-xl bg-base-200 p-5'>
+						<h3 className='font-semibold'>Services</h3>
+						<ul className='mt-3 space-y-2 opacity-80'>
+							<li>One-page website (hero, services, gallery, reviews, CTA)</li>
+							<li>Small multi-page rebuild (4–6 pages) when needed</li>
+							<li>Conversion-first CTAs: Call / WhatsApp / Quote</li>
+							<li>Quote / enquiry form that captures the right info</li>
+							<li>Basic local SEO setup (titles, headings, sitemap)</li>
+							<li>Deploy + handover (or optional care plan)</li>
+						</ul>
+					</div>
+
+					<div className='rounded-xl bg-base-200 p-5'>
+						<h3 className='font-semibold'>To keep delivery fast</h3>
+						<p className='mt-3 opacity-80'>
+							These packages are designed to ship quickly and stay maintainable.
+						</p>
+						<ul className='mt-3 space-y-2 opacity-80'>
+							<li>
+								<span className='font-medium'>Not included by default:</span>{' '}
+								client-managed CMS / admin panel
+							</li>
+							<li>
+								eCommerce, complex bookings, or custom integrations (quoted
+								separately)
+							</li>
+							<li>
+								Ongoing changes are either billed hourly or covered by an update
+								bundle
+							</li>
+						</ul>
+						<div className='mt-4'>
+							<div className='badge badge-ghost'>Fixed scope</div>
+							<div className='badge badge-ghost ml-2'>Fast turnaround</div>
+							<div className='badge badge-ghost ml-2'>Clear boundaries</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Pricing */}
+			<section id='pricing' className='mt-8'>
+				<div className='flex items-end justify-between gap-4'>
+					<div>
+						<h2 className='text-lg font-semibold'>Pricing</h2>
+						<p className='mt-1 opacity-70'>
+							Simple packages for small businesses. If you’re unsure, start with
+							Starter or Business.
+						</p>
+					</div>
+					<Link href='/contact' className='btn btn-primary btn-sm'>
+						Get a quote
+					</Link>
+				</div>
+
+				<div className='mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4'>
+					<div className='card bg-base-100 shadow'>
+						<div className='card-body'>
+							<div className='flex items-center justify-between'>
+								<h3 className='font-semibold'>Starter Pack</h3>
+								<span className='badge badge-outline'>Best value</span>
+							</div>
+							<p className='mt-2 text-2xl font-bold'>£299</p>
+							<p className='opacity-70'>For sole traders & home studios.</p>
+							<ul className='mt-4 space-y-2 opacity-80 text-sm'>
+								<li>One-page site (mobile-first)</li>
+								<li>Services + gallery + reviews</li>
+								<li>Call / WhatsApp CTA buttons</li>
+								<li>Basic SEO + deployment</li>
+							</ul>
+						</div>
+					</div>
+
+					<div className='card bg-base-100 shadow'>
+						<div className='card-body'>
+							<h3 className='font-semibold'>Business Pack</h3>
+							<p className='mt-2 text-2xl font-bold'>£599</p>
+							<p className='opacity-70'>For established local businesses.</p>
+							<ul className='mt-4 space-y-2 opacity-80 text-sm'>
+								<li>Everything in Starter</li>
+								<li>Pricing section (clear packages)</li>
+								<li>Better enquiry form</li>
+								<li>2 revision rounds</li>
+							</ul>
+						</div>
+					</div>
+
+					<div className='card bg-base-100 shadow'>
+						<div className='card-body'>
+							<h3 className='font-semibold'>Rebuild Pack</h3>
+							<p className='mt-2 text-2xl font-bold'>£1,200–£1,800</p>
+							<p className='opacity-70'>For outdated multi-page sites.</p>
+							<ul className='mt-4 space-y-2 opacity-80 text-sm'>
+								<li>4–6 pages</li>
+								<li>Fresh design + improved nav</li>
+								<li>Stronger trust signals</li>
+								<li>Redirects + migration help</li>
+							</ul>
+						</div>
+					</div>
+
+					<div className='card bg-base-100 shadow'>
+						<div className='card-body'>
+							<h3 className='font-semibold'>Let’s talk</h3>
+							<p className='mt-2 text-2xl font-bold'>Custom</p>
+							<p className='opacity-70'>Bookings, eCommerce, integrations.</p>
+							<ul className='mt-4 space-y-2 opacity-80 text-sm'>
+								<li>Short scoping call</li>
+								<li>Written quote</li>
+								<li>Options for ongoing support</li>
+							</ul>
+							<div className='mt-4'>
+								<Link href='/contact' className='btn btn-outline btn-sm w-full'>
+									Discuss your project
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p className='mt-4 text-sm opacity-60'>
+					Note: ongoing changes can be handled hourly or via an update bundle.
+					Hosting/care plan optional.
+				</p>
+			</section>
+
 			{/* Samples grid */}
 			<div className='mt-8 grid gap-6 md:grid-cols-2'>
 				{SAMPLES.map((s) => (

@@ -1,8 +1,6 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaFolderOpen } from 'react-icons/fa';
-import WobbleIcon from './WobbleIcon';
 
 export default function Hero() {
 	return (
@@ -10,32 +8,32 @@ export default function Hero() {
 			<div className='flex flex-col-reverse md:flex-row items-center md:items-start gap-8'>
 				{/* Text column */}
 				<div className='flex-1 flex flex-col'>
-					<p className='text-xs sm:text-sm font-medium tracking-wide text-base-content/70 mb-1'>
-						Hello, I&apos;m Andrew
+					<p className='text-lg sm:text-lg font-medium tracking-wide text-base-content/70 mb-1'>
+						Hi, I&apos;m Andrew
 					</p>
-					<h2 className='text-lg sm:text-xl font-semibold text-base-content mb-4'>
-						Web Developer &amp; Software Engineer
+					<h2 className='text-md sm:text-lg font-semibold text-base-content mb-4'>
+						Full-Stack Developer (React, Next.js, Node.js)
 					</h2>
 
 					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
-						I build fast, reliable web applications — from secure logins and APIs to clean, mobile-friendly UIs. I enjoy the backend as much as the frontend: designing data models, connecting authentication, and shipping features with a strong focus on security and maintainability.
+						I build fast, reliable web applications — from secure logins and
+						APIs to clean, mobile-friendly UIs. I enjoy the backend as much as
+						the frontend: designing data models, connecting authentication, and
+						shipping features with a strong focus on security and
+						maintainability. Open to full-time roles and freelance (Belfast /
+						remote).
 					</p>
 
-					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
-						Open to full-time roles and freelance (Belfast / remote).
-					</p>
-
-					{/* <p className='text-sm sm:text-base text-base-content leading-relaxed'>
-						I&apos;m currently open to both full-time roles and freelance work —
-						whether that&apos;s helping a team ship features faster or building
-						a focused web app or small business site from scratch.
-					</p> */}
-
-					<div className='mt-6 flex gap-4'>
-						<Link href='/projects' aria-label='View projects'>
-							<WobbleIcon>
-								<FaFolderOpen className='w-10 h-10 text-base-content hover:text-warning transition-colors duration-300' />
-							</WobbleIcon>
+					<div className='mt-6'>
+						<Link
+							href='/projects'
+							aria-label='Explore some of my projects'
+							className='inline-flex items-center text-sm sm:text-base font-medium text-base-content hover:text-warning transition-colors duration-300'>
+							Explore some of my projects
+							{/* Arrow icon with spacing */}
+							<span className='ml-2' aria-hidden='true'>
+								&rarr;
+							</span>
 						</Link>
 					</div>
 				</div>

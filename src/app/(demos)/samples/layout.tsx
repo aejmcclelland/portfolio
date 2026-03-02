@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Navbar } from '@/app/(demos)/samples/_components/Navbar';
-import Footer from '@/components/Footer';
+import Footer from '@/app/(demos)/samples/_components/Footer';
 
 export const metadata: Metadata = {
 	title: 'Website Samples | Andrew McClelland',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function SamplesLayout({
 	children,
 }: {
-	children: React.ReactNode;
+	readonly children: React.ReactNode;
 }) {
 	return (
 		<section className='min-h-screen flex flex-col bg-base-200'>

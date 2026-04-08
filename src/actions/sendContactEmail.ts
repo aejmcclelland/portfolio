@@ -13,21 +13,31 @@ const transporter = nodemailer.createTransport({
 });
 
 function sanitiseInput(str: string): string {
-	return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	return str.replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+}
+
+function getFormString(formData: FormData, key: string): string {
+	const value = formData.get(key);
+	return typeof value === 'string' ? value : '';
 }
 
 export async function sendContactEmail(
 	_prevState: { message: string },
-	formData: FormData
+	formData: FormData,
 ) {
-	const name = formData.get('name') as string;
-	const email = formData.get('email') as string;
-	const message = formData.get('message') as string;
-	const phone = formData.get('phone') as string;
-	const linkedin = formData.get('linkedin') as string;
+	const name = getFormString(formData, 'name');
+	const email = getFormString(formData, 'email');
+	const message = getFormString(formData, 'message');
+	const phone = getFormString(formData, 'phone');
+	const linkedin = getFormString(formData, 'linkedin');
+	const token = getFormString(formData, 'recaptcha');
 
 	if (!email || !message) {
 		return { message: 'Missing required fields' };
+	}
+
+	if (!token) {
+		return { message: 'reCAPTCHA verification failed. Please try again.' };
 	}
 
 	const mailOptions = {
@@ -44,19 +54,19 @@ export async function sendContactEmail(
         <p><strong>LinkedIn:</strong> ${
 					sanitiseInput(linkedin)
 						? `<a href="${sanitiseInput(
-								linkedin
-						  )}" target="_blank">${sanitiseInput(linkedin)}</a>`
+								linkedin,
+							)}" target="_blank">${sanitiseInput(linkedin)}</a>`
 						: 'N/A'
 				}</p>
         <p><strong>Message:</strong></p>
-        <p>${sanitiseInput(message).replace(/\n/g, '<br>')}</p>
+        <p>${sanitiseInput(message).replaceAll(/\n/g, '<br>')}</p>
       </div>
     `,
 		replyTo: email,
 	};
 
 	// Verify reCAPTCHA token
-	const token = formData.get('recaptcha');
+	// const token = formData.get('recaptcha');
 
 	const verifyRes = await fetch(
 		'https://www.google.com/recaptcha/api/siteverify',
@@ -64,7 +74,7 @@ export async function sendContactEmail(
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
-		}
+		},
 	);
 
 	console.log('reCAPTCHA token received:', token);

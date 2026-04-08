@@ -41,11 +41,11 @@ export default function Hero() {
 				{/* Avatar column */}
 				<div className='shrink-0'>
 					<Image
-						src='/profile-avatar.png'
+						src='/image-avatar.png'
 						alt='Andrew McClelland'
 						width={140}
 						height={140}
-						className='rounded-full shadow-md border border-base-content md:w-40 md:h-40'
+						className='rounded-full shadow-md border  md:w-40 md:h-40'
 					/>
 				</div>
 			</div>

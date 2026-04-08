@@ -77,12 +77,13 @@ export default function ContactForm() {
 					className='bg-base-100 shadow-md p-6 rounded-xl space-y-6'>
 					<div className='flex flex-col lg:flex-row gap-6'>
 						<div className='form-control w-full'>
-							<label className='label justify-start'>
+							<label htmlFor='name' className='label justify-start'>
 								<span className='label-text text-primary font-semibold'>
 									Preferred Name
 								</span>
 							</label>
 							<input
+								id='name'
 								type='text'
 								name='name'
 								placeholder='Name'
@@ -91,12 +92,13 @@ export default function ContactForm() {
 						</div>
 
 						<div className='form-control w-full'>
-							<label className='label justify-start'>
+							<label htmlFor='email' className='label justify-start'>
 								<span className='label-text font-semibold text-primary'>
 									Your Email
 								</span>
 							</label>
 							<input
+								id='email'
 								type='email'
 								name='email'
 								placeholder='you@example.com'
@@ -107,12 +109,13 @@ export default function ContactForm() {
 					</div>
 
 					<div className='form-control w-full'>
-						<label className='label justify-start'>
+						<label htmlFor='phone' className='label justify-start'>
 							<span className='label-text font-semibold text-primary'>
 								Your Phone (optional)
 							</span>
 						</label>
 						<input
+							id='phone'
 							type='tel'
 							name='phone'
 							placeholder='+44 1234 00123'
@@ -121,12 +124,13 @@ export default function ContactForm() {
 					</div>
 
 					<div className='form-control w-full'>
-						<label className='label justify-start'>
+						<label htmlFor='linkedin' className='label justify-start'>
 							<span className='label-text font-semibold text-primary'>
 								LinkedIn Profile (optional)
 							</span>
 						</label>
 						<input
+							id='linkedin'
 							type='url'
 							name='linkedin'
 							placeholder='https://linkedin.com/in/yourname'
@@ -135,12 +139,13 @@ export default function ContactForm() {
 					</div>
 
 					<div className='form-control w-full'>
-						<label className='label justify-start'>
+						<label htmlFor='message' className='label justify-start'>
 							<span className='label-text font-semibold text-primary'>
 								Your Message
 							</span>
 						</label>
 						<textarea
+							id='message'
 							name='message'
 							className='textarea text-base-content textarea-bordered w-full h-32'
 							placeholder='What would you like to say?'></textarea>

@@ -1,31 +1,12 @@
-/ ** @type {import('tailwindcss').Config} */
-module.exports = {
+import aspectRatio from '@tailwindcss/aspect-ratio';
+import daisyui from 'daisyui';
+
+/** @type {import('tailwindcss').Config} */
+const config = {
 	content: [
 		'./src/app/**/*.{js,ts,jsx,tsx}',
 		'./src/components/**/*.{js,ts,jsx,tsx}',
 	],
-	images: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: 'res.cloudinary.com',
-				// match any path under your Cloudinary account
-				pathname: '/dqeszgo28/**',
-			},
-			{
-				protocol: 'http',
-				hostname: 'localhost',
-				port: '3000',
-				pathname: '/media/**',
-			},
-			{
-				protocol: 'http',
-				hostname: 'localhost',
-				port: '3000',
-				pathname: '/api/media/file/**',
-			},
-		], //Allow Cloudinary images
-	},
 	theme: {
 		extend: {
 			fontFamily: {
@@ -33,7 +14,7 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('@tailwindcss/aspect-ratio'), require('daisyui')],
+	plugins: [aspectRatio, daisyui],
 	daisyui: {
 		themes: [
 			{
@@ -71,8 +52,10 @@ module.exports = {
 					'--noise': '0',
 				},
 			},
-			"dim"
+			'dim',
 		],
-		darkTheme: "dim",
+		darkTheme: 'dim',
 	},
 };
+
+export default config;

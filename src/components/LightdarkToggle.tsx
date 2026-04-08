@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { CiLight, CiDark } from 'react-icons/ci';
+import { useLayoutEffect, useState } from 'react';
 import {
 	LIGHT_THEME,
 	DARK_THEME,
@@ -9,35 +9,38 @@ import {
 	Theme,
 } from '@/config/theme';
 
+function isTheme(value: string | null): value is Theme {
+	return value === LIGHT_THEME || value === DARK_THEME;
+}
+
+function getInitialTheme(): Theme {
+	if (typeof window === 'undefined') {
+		return LIGHT_THEME;
+	}
+
+	const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+
+	if (isTheme(storedTheme)) {
+		return storedTheme;
+	}
+
+	return window.matchMedia('(prefers-color-scheme: dark)').matches
+		? DARK_THEME
+		: LIGHT_THEME;
+}
+
 export default function LightDarkToggle() {
-	const [theme, setTheme] = useState<Theme | null>(null);
+	const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
-	useEffect(() => {
-		const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
-
-		if (stored === LIGHT_THEME || stored === DARK_THEME) {
-			setTheme(stored);
-			document.documentElement.setAttribute('data-theme', stored);
-		} else {
-			const prefersDark = window.matchMedia(
-				'(prefers-color-scheme: dark)'
-			).matches;
-			const initialTheme = prefersDark ? DARK_THEME : LIGHT_THEME;
-			setTheme(initialTheme);
-			document.documentElement.setAttribute('data-theme', initialTheme);
-			localStorage.setItem(THEME_STORAGE_KEY, initialTheme);
-		}
-	}, []);
+	useLayoutEffect(() => {
+		document.documentElement.dataset.theme = theme;
+		window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+	}, [theme]);
 
 	const toggleTheme = () => {
-		if (!theme) return;
 		const newTheme = theme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
 		setTheme(newTheme);
-		document.documentElement.setAttribute('data-theme', newTheme);
-		localStorage.setItem(THEME_STORAGE_KEY, newTheme);
 	};
-
-	if (!theme) return null;
 
 	return (
 		<button

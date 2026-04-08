@@ -1,8 +1,10 @@
 export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/ProjectCard';
-import { getPayload } from 'payload';
 import config from '@payload-config';
-import { Project } from '@/types';
+import { getPayload } from 'payload';
+import type { Project } from '@/types';
+
+type ProjectType = 'application' | 'small-business-site' | 'localTool';
 
 type RawProject = {
 	id: string;
@@ -13,7 +15,7 @@ type RawProject = {
 	tech?: (string | { name?: string })[];
 	githubLink?: string;
 	liveLink?: string;
-	projectType?: 'application' | 'small-business-site';
+	projectType?: ProjectType;
 };
 
 export default async function ProjectsPage() {
@@ -26,30 +28,25 @@ export default async function ProjectsPage() {
 
 	const projects = findResult.docs as RawProject[];
 
-	const projectList: Project[] = projects.map((p) => ({
-		id: p.id,
-		title: p.title,
-		slug: p.slug,
-		description: p.description,
-		images: p.images?.map((img) => ({
-			src: img.imageUrl,
-			alt: img.caption || p.title,
+	const projectList: Project[] = projects.map((project) => ({
+		id: project.id,
+		title: project.title,
+		slug: project.slug,
+		description: project.description,
+		images: project.images?.map((image) => ({
+			src: image.imageUrl,
+			alt: image.caption || project.title,
 		})),
-		tech: (p.tech || []).map((t) =>
-			typeof t === 'string' ? { name: t } : { name: t.name || '' }
+		tech: (project.tech || []).map((tech) =>
+			typeof tech === 'string' ? { name: tech } : { name: tech.name || '' }
 		),
-		githubLink: p.githubLink,
-		liveLink: p.liveLink,
-		// @ts-ignore if your Project type doesn’t yet have this
-		projectType: p.projectType || 'application',
+		githubLink: project.githubLink,
+		liveLink: project.liveLink,
+		projectType: project.projectType || 'application',
 	}));
 
 	const applications = projectList.filter(
-		(p: any) => p.projectType === 'application'
-	);
-
-	const smallBusinessSites = projectList.filter(
-		(p: any) => p.projectType === 'small-business-site'
+		(project) => project.projectType === 'application'
 	);
 
 	return (
@@ -74,11 +71,7 @@ export default async function ProjectsPage() {
 									title={project.title}
 									slug={project.slug}
 									description={project.description}
-									tech={(project.tech || []).map((t) =>
-										typeof t === 'string'
-											? { name: t }
-											: { name: (t as { name?: string }).name || '' }
-									)}
+									tech={project.tech}
 									githubLink={project.githubLink}
 									liveLink={project.liveLink}
 								/>

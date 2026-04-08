@@ -1,16 +1,14 @@
 'use client';
-import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useEffect } from 'react';
-import LightDarkToggle from './LightdarkToggle';
+import { useState } from 'react';
+
+const LightDarkToggle = dynamic(() => import('./LightdarkToggle'), {
+	ssr: false,
+});
 
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
-	const [hasMounted, setHasMounted] = useState(false);
-
-	useEffect(() => {
-		setHasMounted(true);
-	}, []);
 
 	return (
 		<nav className='site-navbar bg-primary sticky top-0 z-50 w-full'>
@@ -63,7 +61,7 @@ export default function Navbar() {
 
 					<button
 						className='btn btn-primary'
-						onClick={() => setIsOpen(!isOpen)}
+						onClick={() => setIsOpen((open) => !open)}
 						aria-label='Toggle menu'
 						aria-expanded={isOpen}>
 						{isOpen ? (
@@ -102,7 +100,7 @@ export default function Navbar() {
 			</div>
 
 			{/* Mobile Dropdown */}
-			{hasMounted && isOpen && (
+			{isOpen && (
 				<div className='absolute top-16 left-0 w-full bg-primary shadow-md z-40 lg:hidden'>
 					<ul className='menu menu-vertical w-full p-4'>
 						<li>

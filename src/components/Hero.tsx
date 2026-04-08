@@ -20,7 +20,7 @@ export default function Hero() {
 						APIs, authentication, and data modelling to clean, responsive user
 						interfaces. My recent work has focused heavily on React, Next.js,
 						Node.js, and modern web application architecture, and I’m actively
-						developing my Java and Spring Boot skills as part of my long-term
+						strengthening my Java and Spring Boot skills as part of my long-term
 						direction as a full-stack developer. Open to full-time roles and
 						freelance opportunities in Belfast or remote.
 					</p>

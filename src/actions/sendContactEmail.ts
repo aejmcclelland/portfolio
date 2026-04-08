@@ -66,7 +66,7 @@ export async function sendContactEmail(
 	};
 
 	// Verify reCAPTCHA token
-	// const token = formData.get('recaptcha');
+	
 
 	const verifyRes = await fetch(
 		'https://www.google.com/recaptcha/api/siteverify',

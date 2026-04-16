@@ -12,17 +12,17 @@ export default function Hero() {
 						Hi, I&apos;m Andrew
 					</p>
 					<h2 className='text-md sm:text-lg font-semibold text-base-content mb-4'>
-						Full-Stack Developer (Java/Spring Boot, React, Next.js)
+						Full-Stack Developer (TypeScript, React, Next.js, Node.js)
 					</h2>
 
 					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
 						I build reliable web applications across the stack — from backend
 						APIs, authentication, and data modelling to clean, responsive user
-						interfaces. My recent work has focused heavily on React, Next.js,
-						Node.js, and modern web application architecture, and I’m actively
-						strengthening my Java and Spring Boot skills as part of my long-term
-						direction as a full-stack developer. Open to full-time roles and
-						freelance opportunities in Belfast or remote.
+						interfaces. My recent work has focused on TypeScript, React,
+						Next.js, Node.js, and modern web application architecture, while
+						I continue developing my Java and Spring Boot backend skills as
+						part of my long-term growth as a full-stack developer. Open to
+						full-time roles and freelance opportunities in Belfast or remote.
 					</p>
 
 					<div className='mt-6'>

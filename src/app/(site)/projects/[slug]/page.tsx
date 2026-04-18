@@ -93,15 +93,17 @@ export default async function ProjectDetail({
 			</ul>
 			<div className='flex flex-col p-6 items-center'>
 				<nav className='flex gap-12'>
-					<WobbleIcon>
-						<a
-							href={project.githubLink || '#'}
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='GitHub'>
-							<FaGithub className='w-9 h-9 text-neutral-content hover:text-primary' />
-						</a>
-					</WobbleIcon>
+					{project.githubLink && (
+						<WobbleIcon>
+							<a
+								href={project.githubLink}
+								target='_blank'
+								rel='noopener noreferrer'
+								aria-label='GitHub'>
+								<FaGithub className='w-9 h-9 text-neutral-content hover:text-primary' />
+							</a>
+						</WobbleIcon>
+					)}
 
 					{project.liveLink && (
 						<WobbleIcon>

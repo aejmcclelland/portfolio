@@ -22,27 +22,32 @@ export default function ContactForm() {
 	const [isSending, setIsSending] = useState(false);
 	const [status, setStatus] = useState<'success' | 'error' | ''>('');
 
-	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (
+		event: React.SyntheticEvent<HTMLFormElement, SubmitEvent>,
+	) => {
 		event.preventDefault();
 		const form = event.currentTarget;
 		const formData = new FormData(form);
+		const maybeGrecaptcha = globalThis.grecaptcha;
 
 		setIsSending(true);
 
 		try {
-			if (!globalThis.grecaptcha || !RECAPTCHA_SITE_KEY) {
-				console.error('reCAPTCHA not loaded');
+			if (!maybeGrecaptcha || !RECAPTCHA_SITE_KEY) {
 				setStatus('error');
+				setIsSending(false);
 				return;
 			}
 
-			globalThis.grecaptcha.ready(async () => {
+			const grecaptcha = maybeGrecaptcha;
+
+			grecaptcha.ready(async () => {
 				try {
-					const token = await globalThis.grecaptcha!.execute(RECAPTCHA_SITE_KEY!, {
+					const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, {
 						action: 'submit',
 					});
 
-					formData.append('recaptcha', token);
+					formData.set('recaptcha', token);
 
 					const result = await sendContactEmail({ message: '' }, formData);
 
@@ -56,6 +61,8 @@ export default function ContactForm() {
 				} catch (error) {
 					console.error('reCAPTCHA execution error:', error);
 					setStatus('error');
+				} finally {
+					setIsSending(false);
 				}
 			});
 		} catch (error) {
@@ -148,7 +155,8 @@ export default function ContactForm() {
 							id='message'
 							name='message'
 							className='textarea text-base-content textarea-bordered w-full h-32'
-							placeholder='What would you like to say?'></textarea>
+							placeholder='What would you like to say?'
+							required></textarea>
 					</div>
 
 					<div className='form-control w-full'>

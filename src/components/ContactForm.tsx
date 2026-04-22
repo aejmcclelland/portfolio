@@ -5,15 +5,15 @@ import { sendContactEmail } from '@/actions/sendContactEmail';
 import { useRouter } from 'next/navigation';
 
 declare global {
-	interface Window {
-		grecaptcha?: {
-			ready: (cb: () => void) => void;
-			execute: (
-				siteKey: string,
-				options: { action: string },
-			) => Promise<string>;
-		};
-	}
+		var grecaptcha:
+			| {
+					ready: (cb: () => void) => void;
+					execute: (
+						siteKey: string,
+						options: { action: string },
+					) => Promise<string>;
+			  }
+			| undefined;
 }
 
 export default function ContactForm() {
@@ -30,15 +30,15 @@ export default function ContactForm() {
 		setIsSending(true);
 
 		try {
-			if (!window.grecaptcha || !RECAPTCHA_SITE_KEY) {
+			if (!globalThis.grecaptcha || !RECAPTCHA_SITE_KEY) {
 				console.error('reCAPTCHA not loaded');
 				setStatus('error');
 				return;
 			}
 
-			window.grecaptcha.ready(async () => {
+			globalThis.grecaptcha.ready(async () => {
 				try {
-					const token = await window.grecaptcha!.execute(RECAPTCHA_SITE_KEY!, {
+					const token = await globalThis.grecaptcha!.execute(RECAPTCHA_SITE_KEY!, {
 						action: 'submit',
 					});
 

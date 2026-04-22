@@ -59,7 +59,7 @@ export async function sendContactEmail(
 						: 'N/A'
 				}</p>
         <p><strong>Message:</strong></p>
-        <p>${sanitiseInput(message).replaceAll(/\n/g, '<br>')}</p>
+        <p>${sanitiseInput(message).replaceAll('/g', '<br>')}</p>
       </div>
     `,
 		replyTo: email,

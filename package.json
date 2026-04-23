@@ -9,19 +9,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "^3.83.0",
-    "@payloadcms/next": "^3.83.0",
-    "@payloadcms/richtext-lexical": "^3.83.0",
-    "@payloadcms/storage-vercel-blob": "^3.83.0",
-    "@payloadcms/ui": "^3.83.0",
+    "@payloadcms/db-mongodb": "^3.84.0",
+    "@payloadcms/next": "^3.84.0",
+    "@payloadcms/richtext-lexical": "^3.84.0",
+    "@payloadcms/storage-vercel-blob": "^3.84.0",
+    "@payloadcms/ui": "^3.84.0",
     "@types/nodemailer": "^7.0.11",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.3.3",
     "graphql": "^16.13.2",
     "mongodb": "7.1.1",
     "mongoose": "8.15.1",
     "next": "16.2.4",
     "nodemailer": "^8.0.5",
-    "payload": "^3.83.0",
+    "payload": "^3.84.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-icons": "^5.6.0",
@@ -44,5 +45,5 @@
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.33.1+sha512.05ba3c1d5d1c18f68df06470d74055e62d41fc110a0c660db1b2dfb2785327f04cf0f68345d4609bc52089e7fa0343c31593b2f9594e2c5d5da426230acc9820"
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
 }

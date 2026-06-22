@@ -9,41 +9,47 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "^3.84.0",
-    "@payloadcms/next": "^3.84.0",
-    "@payloadcms/richtext-lexical": "^3.84.0",
-    "@payloadcms/storage-vercel-blob": "^3.84.0",
-    "@payloadcms/ui": "^3.84.0",
-    "@types/nodemailer": "^7.0.11",
+    "@payloadcms/db-mongodb": "^3.85.1",
+    "@payloadcms/next": "^3.85.1",
+    "@payloadcms/richtext-lexical": "^3.85.1",
+    "@payloadcms/storage-vercel-blob": "^3.85.1",
+    "@payloadcms/ui": "^3.85.1",
+    "@types/nodemailer": "^7.0.12",
     "@vercel/analytics": "^2.0.1",
-    "@vercel/blob": "^2.3.3",
-    "graphql": "^16.13.2",
+    "@vercel/blob": "^2.4.1",
+    "graphql": "^16.14.2",
     "mongodb": "7.1.1",
-    "mongoose": "8.15.1",
+    "mongoose": "^8.22.1",
     "next": "16.2.6",
-    "nodemailer": "^8.0.5",
-    "payload": "^3.84.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
+    "nodemailer": "^9.0.1",
+    "payload": "^3.85.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "react-icons": "^5.6.0",
     "react-responsive-carousel": "^3.2.23",
     "react-toastify": "^11.1.0",
-    "theme-change": "^2.5.0"
+    "theme-change": "^2.5.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/postcss": "^4.2.2",
-    "@types/node": "^24.12.2",
-    "@types/react": "^19.2.14",
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.5.0",
-    "daisyui": "^5.5.19",
+    "daisyui": "^5.5.23",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.2.2",
-    "postcss": "^8.5.10",
-    "tailwindcss": "^4.2.2",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.1",
     "typescript": "^5.9.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "payload>undici": "7.28.0",
+      "next>postcss": "8.5.15"
+    }
   },
   "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
 }

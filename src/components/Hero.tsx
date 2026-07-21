@@ -12,17 +12,13 @@ export default function Hero() {
 						Hi, I&apos;m Andrew
 					</p>
 			<h2 className='text-md sm:text-lg font-semibold text-base-content mb-4'>
-  I enjoy building reliable software with Java, Spring Boot, Node.js and Next.js.
+  I enjoy building reliable software with Java, Spring Boot, Next.js and Node.js.
 </h2>
 
 <p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
-  I build reliable backend applications using Java and Spring Boot, alongside
-  full-stack web applications with TypeScript, React and Next.js. My recent
-  work has focused on designing REST APIs, layered architecture, data
-  persistence, validation, authentication and testing, while also delivering
-  complete web applications from frontend through to deployment. I'm currently
-  seeking a graduate or junior software engineering role in Belfast or remotely
-  across the UK.
+  I’m an MSc Software Development graduate who enjoys turning ideas into well-designed, reliable software. Recently I’ve been focusing on building backend applications with Java and Spring Boot, designing REST APIs and services that are straightforward to understand, test and maintain. Alongside this, I’ve built and deployed full-stack applications using Next.js, React and Node.js, giving me experience across the entire development lifecycle—from database design and authentication through to deployment.
+
+I’m currently looking for a graduate or junior software engineering role where I can contribute to real products, learn from experienced engineers and continue growing as a developer.
 </p>
 
 					<div className='mt-6'>

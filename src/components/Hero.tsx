@@ -11,19 +11,19 @@ export default function Hero() {
 					<p className='text-lg sm:text-lg font-medium tracking-wide text-base-content/70 mb-1'>
 						Hi, I&apos;m Andrew
 					</p>
-					<h2 className='text-md sm:text-lg font-semibold text-base-content mb-4'>
-						Full-Stack Developer (TypeScript, React, Next.js, Node.js)
-					</h2>
+			<h2 className='text-md sm:text-lg font-semibold text-base-content mb-4'>
+  Backend-Focused Software Engineer (Java, Spring Boot, TypeScript)
+</h2>
 
-					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
-						I build reliable web applications across the stack — from backend
-						APIs, authentication, and data modelling to clean, responsive user
-						interfaces. My recent work has focused on TypeScript, React,
-						Next.js, Node.js, and modern web application architecture, while
-						I continue developing my Java and Spring Boot backend skills as
-						part of my long-term growth as a full-stack developer. Open to
-						full-time roles and freelance opportunities in Belfast or remote.
-					</p>
+<p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>
+  I build reliable backend applications using Java and Spring Boot, alongside
+  full-stack web applications with TypeScript, React and Next.js. My recent
+  work has focused on designing REST APIs, layered architecture, data
+  persistence, validation, authentication and testing, while also delivering
+  complete web applications from frontend through to deployment. I'm currently
+  seeking a graduate or junior software engineering role in Belfast or remotely
+  across the UK.
+</p>
 
 					<div className='mt-6'>
 						<Link

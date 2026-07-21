@@ -12,7 +12,7 @@ export default function Hero() {
 						Hi, I&apos;m Andrew
 					</p>
 			<h2 className='text-md sm:text-lg font-semibold text-base-content mb-4'>
-  Backend-Focused Software Engineer (Java, Spring Boot, TypeScript)
+  I enjoy building reliable software with Java, Spring Boot, Node.js and Next.js.
 </h2>
 
 <p className='text-sm sm:text-base text-base-content leading-relaxed mb-3'>

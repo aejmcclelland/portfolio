@@ -11,6 +11,7 @@ export default function About() {
 					alt='Andrew McClelland'
 					width={140}
 					height={140}
+					priority
 					className='rounded-full shadow-md border border-base-content mb-6'
 				/>
 

@@ -1,7 +1,7 @@
 'use client';
-import Link from 'next/link';
-import Image from 'next/image';
 import { profile } from '@/data/profile';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
 	return (
@@ -9,21 +9,31 @@ export default function Hero() {
 			<div className='flex flex-col-reverse md:flex-row items-center md:items-start gap-8'>
 				{/* Text column */}
 				<div className='flex-1 flex flex-col'>
-					<p className='text-lg sm:text-lg font-medium tracking-wide text-base-content/70 mb-1'>
+					<p className='text-xl sm:text-2xl font-semibold text-warning mb-3'>
 						Hi, I&apos;m Andrew
 					</p>
 
-					<h2 className='text-lg sm:text-xl font-semibold text-base-content mb-4'>
+					<h2 className='text-lg sm:text-xl font-semibold text-base-content mb-5'>
 						{profile.title}
 					</h2>
 
-					<p className='text-sm sm:text-base text-base-content leading-relaxed mb-4'>
+					<p className='text-sm sm:text-base text-base-content/90 leading-relaxed mb-5'>
 						{profile.intro}
 					</p>
 
-					<p className='text-sm sm:text-base text-base-content leading-relaxed'>
+					<p className='text-sm sm:text-base text-base-content/90 leading-relaxed'>
 						{profile.outro}
 					</p>
+
+					<div className='mt-6'>
+						<Link
+							href='/projects'
+							aria-label='Explore some of my projects'
+							className='inline-flex items-center gap-2 text-sm sm:text-base font-medium text-base-content hover:text-warning transition-colors duration-300'>
+							<span>Explore some of my projects</span>
+							<span aria-hidden='true'>&rarr;</span>
+						</Link>
+					</div>
 				</div>
 
 				{/* Avatar column */}
@@ -34,7 +44,7 @@ export default function Hero() {
 						width={140}
 						height={140}
 						priority
-						className='rounded-full shadow-md border  md:w-40 md:h-40'
+						className='rounded-full shadow-md border md:w-40 md:h-40'
 					/>
 				</div>
 			</div>

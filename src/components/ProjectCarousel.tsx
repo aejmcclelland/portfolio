@@ -5,11 +5,14 @@ import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-type ProjectCarouselProps = {
-	images: { src: string; alt?: string }[];
-	interval?: number; // ms between slides
-	showThumbs?: boolean; // toggle thumbnail dots
-};
+type ProjectCarouselProps = Readonly<{
+	images: ReadonlyArray<{
+		src: string;
+		alt?: string;
+	}>;
+	interval?: number;
+	showThumbs?: boolean;
+}>;
 
 export default function ProjectCarousel({
 	images,
@@ -39,6 +42,7 @@ export default function ProjectCarousel({
 						src={img.src}
 						alt={img.alt || `Slide ${i + 1}`}
 						fill
+						sizes='(max-width: 768px) 100vw, 600px'
 						className='object-cover rounded-lg'
 						priority={i === 0}
 					/>

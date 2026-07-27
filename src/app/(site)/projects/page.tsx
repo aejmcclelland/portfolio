@@ -1,8 +1,8 @@
 export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/ProjectCard';
+import type { Project } from '@/types';
 import config from '@payload-config';
 import { getPayload } from 'payload';
-import type { Project } from '@/types';
 
 type ProjectType = 'application' | 'small-business-site' | 'localTool';
 
@@ -38,7 +38,7 @@ export default async function ProjectsPage() {
 			alt: image.caption || project.title,
 		})),
 		tech: (project.tech || []).map((tech) =>
-			typeof tech === 'string' ? { name: tech } : { name: tech.name || '' }
+			typeof tech === 'string' ? { name: tech } : { name: tech.name || '' },
 		),
 		githubLink: project.githubLink,
 		liveLink: project.liveLink,
@@ -46,7 +46,7 @@ export default async function ProjectsPage() {
 	}));
 
 	const applications = projectList.filter(
-		(project) => project.projectType === 'application'
+		(project) => project.projectType === 'application',
 	);
 
 	return (
@@ -55,11 +55,13 @@ export default async function ProjectsPage() {
 				{/* Applications section */}
 				<section>
 					<div className='text-center mb-10'>
-						<h1 className='text-4xl font-bold mb-4 text-primary'>
-							Applications
-						</h1>
+						<h1 className='text-4xl font-bold mb-4 text-primary'>Projects</h1>
 						<p className='text-base-content/80 max-w-2xl mx-auto'>
-							A small selection of deployed projects that show how I build: full‑stack features with secure authentication, and shipping to production under custom domains.
+							A selection of personal software projects built with technologies
+							including Next.js, Node.js and MongoDB. Each project demonstrates
+							a different aspect of modern software development, from
+							authentication and database design to deployment and user
+							experience.
 						</p>
 					</div>
 

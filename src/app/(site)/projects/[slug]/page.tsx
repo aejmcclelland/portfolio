@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-export const dynamic = 'force-dynamic';
 import { getPayload } from 'payload';
 import config from '@/payload.config';
 import type { Config } from '@/payload-types';
@@ -9,13 +8,87 @@ import WobbleLink from '@/components/WobbleLink';
 import WobbleIcon from '@/components/WobbleIcon';
 import { FaGithub, FaLaptopCode } from 'react-icons/fa';
 
+export const dynamic = 'force-dynamic';
+
 type Project = Config['collections']['projects'];
+
+type ProjectDetailProps = Readonly<{
+	params: Promise<{ slug: string }>;
+}>;
+
+type ProjectWithMedia = Project &
+	Readonly<{
+		images?: ReadonlyArray<
+			Readonly<{
+				imageUrl: string;
+				caption?: string;
+			}>
+		>;
+		coverImageUrl?: string;
+	}>;
+
+type GalleryImage = Readonly<{
+	src: string;
+	alt: string;
+}>;
+
+type ProjectMediaProps = Readonly<{
+	galleryImages: ReadonlyArray<GalleryImage>;
+	coverImageUrl?: string;
+	coverImageAlt: string;
+}>;
+
+function ProjectMedia({
+	galleryImages,
+	coverImageUrl,
+	coverImageAlt,
+}: ProjectMediaProps) {
+	if (galleryImages.length > 1) {
+		return (
+			<div className='flex justify-center mb-6'>
+				<div className='relative w-full max-w-3xl aspect-video overflow-hidden rounded-lg bg-primary-content/10'>
+					<ProjectCarousel images={galleryImages} />
+				</div>
+			</div>
+		);
+	}
+
+	const [galleryImage] = galleryImages;
+
+	if (galleryImage) {
+		return (
+			<div className='flex justify-center rounded-lg bg-primary-content/10 p-4 mb-6'>
+				<Image
+					src={galleryImage.src}
+					alt={galleryImage.alt}
+					width={800}
+					height={450}
+					className='rounded-lg object-contain'
+				/>
+			</div>
+		);
+	}
+
+	if (coverImageUrl) {
+		return (
+			<div className='flex justify-center rounded-lg bg-primary-content/10 p-4 mb-6'>
+				<Image
+					src={coverImageUrl}
+					alt={coverImageAlt}
+					width={800}
+					height={450}
+					className='rounded-lg object-contain'
+				/>
+			</div>
+		);
+	}
+
+	return null;
+}
 
 export default async function ProjectDetail({
 	params,
-}: {
-	params: Promise<{ slug: string }>;
-}) {
+}: ProjectDetailProps) {
 	const { slug } = await params;
 	const payload = await getPayload({ config });
 	const result = await payload.find({
@@ -26,24 +99,14 @@ export default async function ProjectDetail({
 	});
 
 	const projectRaw = result.docs[0];
-	type ProjectWithMedia = Project & {
-		images?: { imageUrl: string; caption?: string }[];
-		coverImageUrl?: string;
-		imageAlt?: string;
-	};
+	if (!projectRaw) notFound();
+
 	const project = projectRaw as ProjectWithMedia;
-
-	// --- normalize gallery images into a typed array, fallback to coverImageUrl ---
-	type GalleryImage = { src: string; alt: string };
-
 	const galleryImages: GalleryImage[] =
 		project.images?.map(({ imageUrl, caption }) => ({
 			src: imageUrl,
 			alt: caption || project.title,
 		})) ?? [];
-	// --- end normalization ---
-
-	if (!project) return notFound();
 
 	return (
 		<div className='min-h-screen max-w-4xl mx-auto px-4 py-16'>
@@ -53,33 +116,11 @@ export default async function ProjectDetail({
 				</h1>
 			</div>
 
-			{galleryImages.length > 1 ? (
-				<div className='flex justify-center mb-6'>
-					<div className='relative w-full max-w-3xl aspect-video overflow-hidden rounded-lg bg-primary-content/10'>
-						<ProjectCarousel images={galleryImages} />
-					</div>
-				</div>
-			) : galleryImages.length === 1 ? (
-				<div className='flex justify-center rounded-lg bg-primary-content/10 p-4 mb-6'>
-					<Image
-						src={galleryImages[0].src}
-						alt={galleryImages[0].alt}
-						width={800}
-						height={450}
-						className='rounded-lg object-contain'
-					/>
-				</div>
-			) : project.coverImageUrl ? (
-				<div className='flex justify-center rounded-lg bg-primary-content/10 p-4 mb-6'>
-					<Image
-						src={project.coverImageUrl}
-						alt={project.imageAlt || project.title}
-						width={800}
-						height={450}
-						className='rounded-lg object-contain'
-					/>
-				</div>
-			) : null}
+			<ProjectMedia
+				galleryImages={galleryImages}
+				coverImageUrl={project.coverImageUrl}
+				coverImageAlt={project.imageAlt || project.title}
+			/>
 			<div className='mb-6 rounded-lg bg-primary/10 p-4 text-base-content'>
 				{project.description}
 			</div>

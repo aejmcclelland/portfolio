@@ -4,8 +4,8 @@ import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
 	host: 'smtp.maileroo.com',
-	port: 587,
-	secure: false,
+	port: 465,
+	secure: true,
 	auth: {
 		user: process.env.MAILEROO_USER,
 		pass: process.env.MAILEROO_PASS,
@@ -59,7 +59,7 @@ export async function sendContactEmail(
 						: 'N/A'
 				}</p>
         <p><strong>Message:</strong></p>
-        <p>${sanitiseInput(message).replaceAll('/g', '<br>')}</p>
+        <p>${sanitiseInput(message).replace(/\r?\n/g, '<br>')}</p>
       </div>
     `,
 		replyTo: email,
@@ -76,12 +76,9 @@ export async function sendContactEmail(
 		},
 	);
 
-	console.log('reCAPTCHA token received:', token);
 	const verifyData = await verifyRes.json();
-	console.log('reCAPTCHA verification response:', verifyData);
 
 	if (!verifyData.success || verifyData.score < 0.5) {
-		console.error('reCAPTCHA failed:', verifyData);
 		return { message: 'reCAPTCHA verification failed. Please try again.' };
 	}
 

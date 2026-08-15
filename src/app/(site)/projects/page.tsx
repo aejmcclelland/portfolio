@@ -1,5 +1,7 @@
 export const dynamic = 'force-dynamic';
 import ProjectCard from '@/components/ProjectCard';
+import ApiProjectCard from '@/components/ApiProjectCard';
+import { apiProjects } from '@/data/apiProjects';
 import type { Project } from '@/types';
 import config from '@payload-config';
 import { getPayload } from 'payload';
@@ -52,16 +54,48 @@ export default async function ProjectsPage() {
 	return (
 		<main className='min-h-screen px-6 py-20 sm:px-10 bg-base-200 text-base-content'>
 			<div className='max-w-5xl mx-auto space-y-16'>
+				<header className='text-center'>
+					<h1 className='text-4xl font-bold mb-4 text-primary'>Projects</h1>
+					<p className='text-base-content/80 max-w-2xl mx-auto'>
+						A selection of backend and full-stack software projects built
+						with Java, Spring Boot, Next.js and Node.js, demonstrating API
+						design, business logic, testing, database integration and
+						deployed application development.
+					</p>
+				</header>
+
+				{/* API projects section */}
+				<section aria-labelledby='api-projects-heading'>
+					<div className='mb-10 grid gap-4 rounded-xl border border-base-300 bg-base-100 p-6 shadow-sm md:grid-cols-2 md:items-center md:gap-8 md:p-8'>
+						<h2
+							id='api-projects-heading'
+							className='text-3xl font-bold text-primary'>
+							Java &amp; Spring Boot APIs
+						</h2>
+						<p className='text-base-content/80 leading-relaxed'>
+							Focused backend projects demonstrating REST API design,
+							business-rule modelling, layered architecture, validation,
+							persistence and automated testing with Java and Spring Boot.
+						</p>
+					</div>
+
+					<div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr'>
+						{apiProjects.map((project) => (
+							<ApiProjectCard key={project.id} project={project} />
+						))}
+					</div>
+				</section>
 				{/* Applications section */}
 				<section>
-					<div className='text-center mb-10'>
-						<h1 className='text-4xl font-bold mb-4 text-primary'>Projects</h1>
-						<p className='text-base-content/80 max-w-2xl mx-auto'>
-							A selection of personal software projects built with technologies
-							including Next.js, Node.js and MongoDB. Each project demonstrates
-							a different aspect of modern software development, from
-							authentication and database design to deployment and user
-							experience.
+					<div className='mb-10 grid gap-4 rounded-xl border border-base-300 bg-base-100 p-6 shadow-sm md:grid-cols-2 md:items-center md:gap-8 md:p-8'>
+						<h2 className='text-3xl font-bold text-primary'>
+							Full-Stack Applications
+						</h2>
+						<p className='text-base-content/80 leading-relaxed'>
+							Larger application projects built with technologies including
+							Next.js, TypeScript, Node.js and modern databases, covering
+							authentication, data modelling, deployment and user-facing
+							product development.
 						</p>
 					</div>
 
